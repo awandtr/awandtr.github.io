@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ruang belajar</title>
+    <link rel="stylesheet" href="Style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Darumadrop+One&display=swap" rel="stylesheet">
+</head>
+<body>
+    <nav>
+        <div class="Logo">
+            <a href="index.html"><img src="..\Icon\Logo.svg" alt="Logo BinaAlam" width="100px" /></a>
+        </div>
+        <div class="Header">
+            <div id="list">
+            <a href="index.html">Home</a>
+            <a href="tentang_kami.html">Tentang Kami</a>
+            <a href="Ruang_belajar.html">Ruang Belajar</a>
+            <a href="Ruang_ekosistem.html">Ruang Ekosistem</a>
+            <a href="Support.html">Support</a>
+            <a href="kontak_kami.html">Kontak Kami</a>
+            <a href="Login.html">Login</a>
+            <a href="Daftar.html">Daftar</a>
+            </div>
+        </div>
+    </nav>
+<br>
+    <div id="titel"><p><b>Modul SMP</b></p>
+        <p>Berikut adalah Kumpulan Modul SMP</p>
+    </div>
+    <br>
+    <main>
+        <div class="modul-grid">
+            <div class="modul-card">
+                <img src="Icon/sd ahh.svg" alt="Matematika SMP" width="80" style="margin-bottom:10px;">
+                <h3>Matematika SMP</h3>
+                <p>Materi aljabar, geometri, dan persamaan linear untuk kelas 7-9. Dilengkapi latihan soal dan pembahasan.</p>
+                <a href="#" class="modul-btn">Download PDF</a>
+            </div>
+            <div class="modul-card">
+                <img src="Icon/sd ahh.svg" alt="IPA SMP" width="80" style="margin-bottom:10px;">
+                <h3>IPA Terpadu SMP</h3>
+                <p>Fisika, Biologi, dan Kimia dasar untuk SMP. Penjelasan konsep dan eksperimen sederhana.</p>
+                <a href="#" class="modul-btn">Download PDF</a>
+            </div>
+            <div class="modul-card">
+                <img src="Icon/sd ahh.svg" alt="Bahasa Inggris SMP" width="80" style="margin-bottom:10px;">
+                <h3>Bahasa Inggris SMP</h3>
+                <p>Grammar, reading, dan latihan soal UN/UTBK. Cocok untuk persiapan ujian SMP.</p>
+                <a href="#" class="modul-btn">Download PDF</a>
+            </div>
+        </div>
+    </main>
+    <style>
+    .modul-grid {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 32px;
+        justify-content: center;
+        margin-bottom: 40px;
+    }
+    .modul-card {
+        background: #fff;
+        border-radius: 14px;
+        box-shadow: 0 2px 12px #0001;
+        padding: 28px 22px 22px 22px;
+        width: 300px;
+        text-align: center;
+        transition: box-shadow .2s;
+    }
+    .modul-card:hover {
+        box-shadow: 0 4px 24px #0002;
+    }
+    .modul-card h3 {
+        margin: 10px 0 8px 0;
+        color: #2a4d69;
+    }
+    .modul-card p {
+        font-size: 1em;
+        color: #444;
+        min-height: 60px;
+    }
+    .modul-btn {
+        display: inline-block;
+        margin-top: 12px;
+        background: #19a89d;
+        color: #fff;
+        padding: 8px 22px;
+        border-radius: 6px;
+        text-decoration: none;
+        font-weight: bold;
+        transition: background .2s;
+    }
+    .modul-btn:hover {
+        background: #13877b;
+    }
+    </style>
+    <div class = "footer">
+        <div class = "contactlink">
+            <h2>Contact Us</h2>
+            <a href=""> <img src="instagram_logo.svg" alt=""></a>
+            <a href=""> <img src="..\Icon\akar-icons_x-fill@2x.svg" alt=""></a>
+            <a href=""> <img src="..\Icon\youtube_logo.svg" alt=""></a>
+           
+        </div> 
+    </div>
+    <script src="Interaction.js"></script>
+    <script>
+    document.addEventListener('DOMContentLoaded', updateNavbarUser);
+    </script>
+</body>
+</html>

@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Detail Forum</title>
+    <link rel="stylesheet" href="Style.css">
+</head>
+<body>
+    <nav>
+        <div class="Logo">
+            <a href="index.html"><img src="Icon/Logo.svg" alt="Logo BinaAlam" width="100px" /></a>
+        </div>
+        <div class="Header">
+            <div id="list">
+                <a href="index.html">Home</a>
+                <a href="tentang_kami.html">Tentang Kami</a>
+                <a href="Ruang_belajar.html">Ruang Belajar</a>
+                <a href="Ruang_ekosistem.html">Ruang Ekosistem</a>
+                <a href="Support.html">Support</a>
+                <a href="Login.html">Login</a>
+                <a href="Daftar.html">Daftar</a>
+            </div>
+        </div>
+    </nav>
+    <main>
+        <div class="forum-section" id="forum-detail-section">
+            <!-- Detail forum akan diisi oleh JS -->
+        </div>
+    </main>
+    <div class = "footer">
+        <div class = "contactlink">
+            <h2>Contact Us</h2>
+            <a href=""> <img src="instagram_logo.svg" alt=""></a>
+            <a href=""> <img src="Icon/akar-icons_x-fill@2x.svg" alt=""></a>
+            <a href=""> <img src="Icon/youtube_logo.svg" alt=""></a>
+        </div> 
+    </div>
+    <script>
+    // Dummy data detail forum
+    const forumDetailDummy = {
+        mentoring: {
+            1: {
+                title: 'Mentor: Kak Rina - Matematika Dasar (SD/SMP)',
+                desc: 'Sesi mentoring online Matematika Dasar untuk SD/SMP. Silakan tanya materi, PR, atau diskusi soal!<br>Jadwal: Setiap Sabtu, 10.00-11.30 WIB',
+                replies: [
+                    {name: 'Budi', text: 'Kak, boleh minta tips cepat hitung pecahan?'},
+                    {name: 'Kak Rina', text: 'Tentu! Pecahan bisa diubah ke desimal dulu, lalu dihitung.'}
+                ]
+            },
+            2: {
+                title: 'Mentor: Pak Budi - Fisika SMA',
+                desc: 'Mentoring Fisika SMA, fokus pada persiapan UTBK dan olimpiade.<br>Jadwal: Minggu, 13.00-14.30 WIB',
+                replies: [
+                    {name: 'Siti', text: 'Pak, bagaimana cara memahami konsep momentum?'},
+                    {name: 'Pak Budi', text: 'Momentum = massa x kecepatan. Banyak latihan soal ya!'}
+                ]
+            }
+        },
+        diskusi: {
+            1: {
+                title: 'Andi: Bagaimana cara belajar efektif untuk UTBK?',
+                desc: 'Diskusi strategi belajar UTBK, tips, dan pengalaman dari peserta lain.',
+                replies: [
+                    {name: 'Mentor Rina', text: 'Buat jadwal belajar dan latihan soal rutin ya!'},
+                    {name: 'Andi', text: 'Terima kasih, Kak!'}
+                ]
+            },
+            2: {
+                title: 'Siti: Tips mengatur waktu belajar dan bermain?',
+                desc: 'Sharing pengalaman mengatur waktu antara belajar dan aktivitas lain.',
+                replies: [
+                    {name: 'Andi', text: 'Saya pakai to-do list harian, sangat membantu!'},
+                    {name: 'Siti', text: 'Noted, terima kasih!'}
+                ]
+            }
+        }
+    };
+    // Ambil parameter dari URL
+    function getQueryParam(name) {
+        const url = new URL(window.location.href);
+        return url.searchParams.get(name);
+    }
+    function renderForumDetail() {
+        const type = getQueryParam('type');
+        const id = getQueryParam('id');
+        const data = forumDetailDummy[type] && forumDetailDummy[type][id];
+        const section = document.getElementById('forum-detail-section');
+        if (!data) {
+            section.innerHTML = '<h2>Forum tidak ditemukan.</h2>';
+            return;
+        }
+        let html = `<h2>${data.title}</h2><p>${data.desc}</p><hr><b>Balasan:</b><ul>`;
+        data.replies.forEach(r => {
+            html += `<li><b>${r.name}:</b> ${r.text}</li>`;
+        });
+        html += '</ul>';
+        section.innerHTML = html;
+    }
+    renderForumDetail();
+    </script>
+    <script src="Interaction.js"></script>
+    <script>
+    document.addEventListener('DOMContentLoaded', updateNavbarUser);
+    </script>
+    </body>
+</html>

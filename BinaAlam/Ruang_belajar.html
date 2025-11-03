@@ -1,0 +1,401 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ruang belajar</title>
+    <link rel="stylesheet" href="Style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Darumadrop+One&display=swap" rel="stylesheet">
+<style>
+    .ebook-section {
+        background: #f7fafc;
+        border-radius: 18px;
+        margin: 40px auto 32px auto;
+        max-width: 1200px;
+        box-shadow: 0 2px 16px #0001;
+        padding: 32px 0 24px 0;
+    }
+    .ebook-section h2 {
+        font-size: 2em;
+        font-weight: bold;
+        color: #2a4d69;
+        margin-bottom: 18px;
+        letter-spacing: 1px;
+    }
+    .ebook-filter {
+        margin-bottom: 24px;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 18px;
+        align-items: center;
+    }
+    .ebook-filter label {
+        font-weight: 500;
+        color: #2a4d69;
+        margin-right: 6px;
+    }
+    .ebook-filter select {
+        font-size: 1.08em;
+        padding: 7px 18px;
+        border-radius: 6px;
+        border: 1px solid #bbb;
+        background: #fff;
+        margin-right: 8px;
+    }
+    .ebook-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+        gap: 32px;
+        justify-content: center;
+        margin: 0 24px 40px 24px;
+    }
+    .ebook-card {
+        background: #fff;
+        border-radius: 16px;
+        box-shadow: 0 2px 12px #0001;
+        padding: 28px 18px 18px 18px;
+        text-align: center;
+        transition: box-shadow .2s, transform .2s;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        min-height: 340px;
+        position: relative;
+    }
+    .ebook-card:hover {
+        box-shadow: 0 6px 24px #0002;
+        transform: translateY(-4px) scale(1.03);
+    }
+    .ebook-card img {
+        border-radius: 8px;
+        margin-bottom: 14px;
+        box-shadow: 0 1px 6px #0001;
+        background: #f0f0f0;
+        width: 80px;
+        height: 110px;
+        object-fit: cover;
+    }
+    .ebook-card h3 {
+        margin: 8px 0 6px 0;
+        color: #19a89d;
+        font-size: 1.15em;
+        font-weight: bold;
+        min-height: 40px;
+    }
+    .ebook-card .ebook-author {
+        font-size: 0.98em;
+        color: #888;
+        margin-bottom: 4px;
+    }
+    .ebook-card p {
+        font-size: 0.98em;
+        color: #444;
+        min-height: 48px;
+        margin-bottom: 10px;
+    }
+    .ebook-btn {
+        display: inline-block;
+        margin-top: 10px;
+        background: #2a4d69;
+        color: #fff;
+        padding: 7px 18px;
+        border-radius: 6px;
+        text-decoration: none;
+        font-weight: bold;
+        transition: background .2s;
+        cursor: pointer;
+        font-size: 1em;
+        border: none;
+        margin-bottom: 4px;
+    }
+    .ebook-btn:hover {
+        background: #19a89d;
+    }
+    .ebook-modal-bg {
+        display: none;
+        position: fixed;
+        z-index: 1000;
+        left: 0; top: 0; right: 0; bottom: 0;
+        background: #0008;
+        align-items: center;
+        justify-content: center;
+    }
+    .ebook-modal {
+        background: #fff;
+        border-radius: 12px;
+        max-width: 520px;
+        width: 95vw;
+        padding: 28px 22px 18px 22px;
+        box-shadow: 0 8px 32px #0003;
+        position: relative;
+    }
+    .ebook-modal-close {
+        position: absolute;
+        right: 18px; top: 12px;
+        font-size: 1.5em;
+        color: #e74c3c;
+        cursor: pointer;
+        font-weight: bold;
+    }
+    .ebook-modal h2 {
+        color: #2a4d69;
+        margin-bottom: 10px;
+    }
+    .ebook-modal-content {
+        color: #333;
+        font-size: 1.05em;
+        margin-bottom: 10px;
+    }
+    @media (max-width: 700px) {
+        .ebook-section {padding: 18px 0;}
+        .ebook-grid {margin: 0 4px 24px 4px;gap:18px;}
+        .ebook-card {padding: 18px 6px;min-height:260px;}
+        .ebook-card img {width:60px;height:80px;}
+    }
+    </style>
+</head>
+<body>
+    <nav>
+        <div class="Logo">
+            <a href="index.html"><img src="/BinaAlam/Icon/Logo.svg" alt="Logo BinaAlam" width="100px" /></a>
+        </div>
+        <div class="Header">
+            <div id="list">
+            <a href="index.html">Home</a>
+            <a href="tentang_kami.html">Tentang Kami</a>
+            <a href="Ruang_belajar.html">Ruang Belajar</a>
+            <a href="Ruang_ekosistem.html">Ruang Ekosistem</a>
+            <a href="Support.html">Support</a>
+            <a href="kontak_kami.html">Kontak Kami</a>
+            <a href="Login.html">Login</a>
+            <a href="Daftar.html">Daftar</a>
+            </div>
+        </div>
+    </nav>
+<br>
+    <div id="titel"><p><b>Selamat Datang Di Ruang Belajar</b></p>
+        <p>Berikut adalah Kumpulan Modul Untuk Kamu Bisa <u>menjadi yang terbaik</u></p>
+    </div>
+    <br>
+    <main>
+        <div class="row1 grid-belajar">
+            <div class="card-belajar">
+                <div class="img-belajar"><img src="Icon/sd ahh.svg" alt="anak sd" width="180px"></div>
+                <a href="modul_SD.html">Modul SD</a>
+            </div>
+            <div class="card-belajar">
+                <div class="img-belajar"><img src="Icon/image (1).svg" alt="anak smp" width="180px"></div>
+                <a href="modul_SMP.html">Modul SMP</a>
+            </div>
+            <div class="card-belajar">
+                <div class="img-belajar"><img src="Icon/Anaksma.svg" alt="anak sma" width="180px"></div>
+                <a href="modul_SMA.html">Modul SMA</a>
+            </div>
+            <div class="card-belajar">
+                <div class="img-belajar"><img src="Icon/smk.svg" alt="anak smk" width="180px"></div>
+                <a href="modul_SMK.html">Modul SMK</a>
+            </div>
+            <div class="card-belajar">
+                <div class="img-belajar"><img src="Icon/mahasiaw.svg" alt="mahasiswa" width="180px"></div>
+                <a href="modul_MHS.html">Modul Mahasiswa</a>
+            </div>
+            <div class="card-belajar">
+                <div class="img-belajar"><img src="Icon/ruang belajar.svg" alt="modul online" width="180px"></div>
+                <a href="modul.html" style="font-weight:bold;color:#19a89d;">Semua Modul & E-Book Online</a>
+            </div>
+        </div>
+    </main>
+    <!-- Forum Section: Fokus Forum Ruang Belajar -->
+    <section class="forum-section">
+        <h1>Forum Ruang Belajar</h1>
+        <div class="forum-tabs">
+            <button class="forum-tab-btn active" onclick="showForumTab('mentoring')">Mentoring Sukarelawan</button>
+            <button class="forum-tab-btn" onclick="showForumTab('diskusi')">Diskusi</button>
+            <button class="forum-tab-btn" onclick="showForumTab('pencocokan')">Pencocokan Tutor</button>
+            <button class="forum-tab-btn" onclick="showForumTab('daftar-mentor')">Daftar Mentor</button>
+            <a href="forum.html" class="forum-tab-btn" style="background:#eaf6ff;color:#2a4d69;">Lihat Semua Forum &gt;&gt;</a>
+        </div>
+        <div class="forum-tab-content" id="forum-mentoring">
+            <h2>Forum Mentoring Sukarelawan</h2>
+            <div class="forum-list" id="mentoring-list">
+                <div class="forum-thread" onclick="showForumDetail('mentoring', 1)"><b>Mentor: Kak Rina</b> - Matematika Dasar (SD/SMP) <span class="forum-thread-meta">Online</span> <a href="forum_detail.html?type=mentoring&id=1" class="lihat-detail">Lihat Detail</a></div>
+                <div class="forum-thread" onclick="showForumDetail('mentoring', 2)"><b>Mentor: Pak Budi</b> - Fisika SMA <span class="forum-thread-meta">Offline</span> <a href="forum_detail.html?type=mentoring&id=2" class="lihat-detail">Lihat Detail</a></div>
+            </div>
+            <form id="form-mentoring-thread" class="forum-form">
+                <input type="text" id="mentoring-mentor" placeholder="Nama Mentor" required>
+                <input type="text" id="mentoring-topik" placeholder="Topik Mentoring" required>
+                <select id="mentoring-status" required>
+                    <option value="Online">Online</option>
+                    <option value="Offline">Offline</option>
+                </select>
+                <button type="submit">Buat Thread</button>
+            </form>
+        </div>
+        <div class="forum-tab-content" id="forum-diskusi" style="display:none;">
+            <h2>Forum Diskusi</h2>
+            <div class="forum-list" id="diskusi-list">
+                <div class="forum-thread" onclick="showForumDetail('diskusi', 1)"><b>Andi:</b> Bagaimana cara belajar efektif untuk UTBK? <a href="forum_detail.html?type=diskusi&id=1" class="lihat-detail">Lihat Detail</a></div>
+                <div class="forum-thread" onclick="showForumDetail('diskusi', 2)"><b>Siti:</b> Tips mengatur waktu belajar dan bermain? <a href="forum_detail.html?type=diskusi&id=2" class="lihat-detail">Lihat Detail</a></div>
+            </div>
+            <form id="form-diskusi-thread" class="forum-form">
+                <input type="text" id="diskusi-nama" placeholder="Nama Anda" required>
+                <input type="text" id="diskusi-pertanyaan" placeholder="Tulis pertanyaan atau diskusi..." required>
+                <button type="submit">Kirim</button>
+            </form>
+        </div>
+        <div class="forum-tab-content" id="forum-pencocokan" style="display:none;">
+            <h2>Pencocokan Tutor dengan Siswa</h2>
+            <form id="form-pencocokan" class="forum-form">
+                <input type="text" id="pencocokan-nama" placeholder="Nama Siswa" required>
+                <input type="text" id="pencocokan-kebutuhan" placeholder="Kebutuhan Belajar (misal: Matematika SMA)" required>
+                <button type="submit">Cari Tutor</button>
+            </form>
+            <div id="pencocokan-hasil" class="forum-list"></div>
+        </div>
+        <div class="forum-tab-content" id="forum-daftar-mentor" style="display:none;">
+            <h2>Daftar Menjadi Mentor</h2>
+            <form id="form-daftar-mentor" class="forum-form">
+                <input type="text" id="mentor-nama" placeholder="Nama Lengkap" required>
+                <input type="email" id="mentor-email" placeholder="Email" required>
+                <input type="text" id="mentor-keahlian" placeholder="Keahlian (misal: Fisika, Bahasa Inggris)" required>
+                <button type="submit">Daftar Mentor</button>
+            </form>
+            <div id="mentor-msg" class="error" style="display:none;"></div>
+        </div>
+        <!-- Forum Detail Modal -->
+        <div id="forum-detail-modal" class="forum-detail-modal" style="display:none;">
+            <div class="forum-detail-content">
+                <span class="forum-detail-close" onclick="closeForumDetail()">&times;</span>
+                <div id="forum-detail-body"></div>
+            </div>
+        </div>
+    </section>
+    <!-- Koleksi E-Book Open Library -->
+    <section class="ebook-section">
+        <h2 style="text-align:center;margin:32px 0 18px 0;color:#2a4d69;">Koleksi E-Book Gratis (Open Library)</h2>
+        <div class="ebook-filter" style="text-align:center;margin:18px 0 18px 0;">
+          <label for="tipe">Tipe Buku:</label>
+          <select id="tipe">
+            <option value="akademik">Akademik</option>
+            <option value="nonakademik">Non-Akademik</option>
+          </select>
+          <label for="genre" style="margin-left:18px;">Genre:</label>
+          <select id="genre"></select>
+        </div>
+        <div class="ebook-grid" id="ebook-list"></div>
+    </section>
+    <!-- Modal baca e-book -->
+    <div class="ebook-modal-bg" id="ebook-modal-bg">
+        <div class="ebook-modal">
+            <span class="ebook-modal-close" onclick="closeEbookModal()">&times;</span>
+            <h2 id="ebook-modal-title"></h2>
+            <div class="ebook-modal-content" id="ebook-modal-content"></div>
+        </div>
+    </div>
+    <script>
+    // Mapping genre per tipe buku
+    const genreMap = {
+      akademik: [
+        {subject: 'science', label: 'Sains'},
+        {subject: 'mathematics', label: 'Matematika'},
+        {subject: 'history', label: 'Sejarah'},
+        {subject: 'technology', label: 'Teknologi'},
+        {subject: 'education', label: 'Pendidikan'}
+      ],
+      nonakademik: [
+        {subject: 'fiction', label: 'Fiksi'},
+        {subject: 'children', label: 'Anak-anak'},
+        {subject: 'motivation', label: 'Motivasi'},
+        {subject: 'romance', label: 'Romantis'},
+        {subject: 'fantasy', label: 'Fantasi'}
+      ]
+    };
+    // Render genre sesuai tipe
+    function renderGenreOptions() {
+      const tipe = document.getElementById('tipe').value;
+      const genreSel = document.getElementById('genre');
+      genreSel.innerHTML = '';
+      genreMap[tipe].forEach(g => {
+        const opt = document.createElement('option');
+        opt.value = g.subject;
+        opt.textContent = g.label;
+        genreSel.appendChild(opt);
+      });
+    }
+    // Fetch buku dari Open Library sesuai genre
+    async function fetchOpenLibraryBooks(subject) {
+      const res = await fetch(`https://openlibrary.org/subjects/${subject}.json?limit=12`);
+      const data = await res.json();
+      return (data.works || []).map(b => ({
+        title: b.title,
+        author: b.authors && b.authors[0] ? b.authors[0].name : 'Unknown',
+        cover: b.cover_id ? `https://covers.openlibrary.org/b/id/${b.cover_id}-M.jpg` : 'Icon/ruang belajar.svg',
+        desc: b.subject ? b.subject.slice(0,3).join(', ') : '',
+        detail: `https://openlibrary.org${b.key}`,
+        content: b.description ? (typeof b.description === 'string' ? b.description : b.description.value) : 'Deskripsi tidak tersedia.'
+      }));
+    }
+    // Render buku
+    async function renderEbookList() {
+      const genre = document.getElementById('genre').value;
+      const list = document.getElementById('ebook-list');
+      list.innerHTML = '<p>Loading...</p>';
+      const books = await fetchOpenLibraryBooks(genre);
+      if (books.length === 0) {
+        list.innerHTML = '<p style="text-align:center;width:100%">Tidak ada e-book untuk genre ini.</p>';
+        return;
+      }
+      list.innerHTML = '';
+      books.forEach((e, i) => {
+        const card = document.createElement('div');
+        card.className = 'ebook-card';
+        card.innerHTML = `
+          <img src="${e.cover}" alt="${e.title}" width="70" style="margin-bottom:10px;">
+          <h3>${e.title}</h3>
+          <div style="font-size:0.95em;color:#888;">${e.author}</div>
+          <p>${e.desc}</p>
+          <button class="ebook-btn" onclick="openEbookModal(${i})">Lihat Detail</button>
+          <a href="${e.detail}" class="ebook-btn" style="margin-left:8px;" target="_blank">Baca di OpenLibrary</a>
+        `;
+        list.appendChild(card);
+      });
+      window._openLibBooks = books;
+    }
+    function openEbookModal(idx) {
+      const e = window._openLibBooks[idx];
+      document.getElementById('ebook-modal-title').textContent = e.title;
+      document.getElementById('ebook-modal-content').innerHTML = e.content;
+      document.getElementById('ebook-modal-bg').style.display = 'flex';
+    }
+    function closeEbookModal() {
+      document.getElementById('ebook-modal-bg').style.display = 'none';
+    }
+    window.openEbookModal = openEbookModal;
+    window.closeEbookModal = closeEbookModal;
+    // Event handler
+    document.getElementById('tipe').onchange = function() {
+      renderGenreOptions();
+      renderEbookList();
+    };
+    document.getElementById('genre').onchange = renderEbookList;
+    // Init
+    renderGenreOptions();
+    renderEbookList();
+    </script>
+    <script src="Interaction.js"></script>
+    <script>
+    document.addEventListener('DOMContentLoaded', updateNavbarUser);
+    </script>
+    <div class = "footer">
+        <div class = "contactlink">
+            <h2>Contact Us</h2>
+            <a href="https://www.instagram.com/"> <img src="/BinaAlam/Icon/instagram_logo.svg" alt=""></a>
+            <a href="https://www.twitter.com/"> <img src="/BinaAlam/Icon/akar-icons_x-fill@2x.svg" alt=""></a>
+            <a href="https://www.youtube.com/"> <img src="/BinaAlam/Icon/youtube_logo.svg" alt=""></a>
+        </div>  
+    </div>
+</body>
+</html>

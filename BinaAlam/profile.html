@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Profile User</title>
+    <link rel="stylesheet" href="Style.css">
+    <script src="Interaction.js"></script>
+</head>
+<body>
+    <nav>
+        <div class="Logo">
+            <a href="index.html"><img src="Icon/Logo.svg" alt="Logo BinaAlam" width="100px" /></a>
+        </div>
+        <div class="Header">
+            <div id="list">
+                <a href="index.html">Home</a>
+                <a href="tentang_kami.html">Tentang Kami</a>
+                <a href="Ruang_belajar.html">Ruang Belajar</a>
+                <a href="Ruang_ekosistem.html">Ruang Ekosistem</a>
+                <a href="Support.html">Support</a>
+                <a href="Login.html">Login</a>
+                <a href="Daftar.html">Daftar</a>
+            </div>
+        </div>
+    </nav>
+    <main>
+        <div class="profile-section" id="profile-section">
+            <!-- Profile content will be rendered by JS -->
+        </div>
+    </main>
+    <div class = "footer">
+        <div class = "contactlink">
+            <h2>Contact Us</h2>
+            <a href=""> <img src="instagram_logo.svg" alt=""></a>
+            <a href=""> <img src="Icon/akar-icons_x-fill@2x.svg" alt=""></a>
+            <a href=""> <img src="Icon/youtube_logo.svg" alt=""></a>
+        </div> 
+    </div>
+    <script>
+    // Ambil user login dari localStorage
+    const loggedUser = localStorage.getItem('dummyUser') ? JSON.parse(localStorage.getItem('dummyUser')) : null;
+    // Dummy profiles
+    const dummyProfiles = [
+        {
+            id: 1,
+            role: 'mentor',
+            name: 'Rina Mentari',
+            email: 'rina.mentor@email.com',
+            photo: '', // foto dihapus
+            biodata: {
+                "Keahlian": "Matematika Dasar, Fisika Dasar",
+                "Pengalaman": "Mentor bimbel 4 tahun, Juara Olimpiade Matematika Nasional",
+                "Pendidikan": "S1 Pendidikan Matematika, Universitas Negeri X",
+                "Kota": "Bandung",
+                "Bio": "Saya Rina, siap membantu pelajar memahami Matematika dan Fisika dengan cara menyenangkan!"
+            },
+            status: [
+                {text: "Siap mentoring Sabtu ini!", time: "2025-06-05 08:00"},
+                {text: "Tips UTBK: Latihan soal setiap hari!", time: "2025-06-04 19:00"}
+            ]
+        },
+        {
+            id: 2,
+            role: 'pelajar',
+            name: 'Diatar',
+            email: 'dummy@email.com',
+            photo: '', // foto dihapus
+            biodata: {
+                "Kelas": "SMP Kelas 9",
+                "Sekolah": "SMPN 1 Jakarta",
+                "Kota": "Jakarta",
+                "Bio": "Saya Diatar, suka Matematika dan ingin lulus UTBK!"
+            },
+            status: [
+                {text: "Baru selesai belajar bareng Kak Rina!", time: "2025-06-05 10:00"},
+                {text: "Siap ikut mentoring minggu depan.", time: "2025-06-04 20:00"}
+            ]
+        },
+        {
+            id: 3,
+            role: 'pelajar',
+            name: 'Awam',
+            email: 'dummy1@email.com',
+            photo: '', // foto dihapus
+            biodata: {
+                "Kelas": "SMP Kelas 8",
+                "Sekolah": "SMPN 2 Jakarta",
+                "Kota": "Jakarta",
+                "Bio": "Saya Awam, ingin belajar lebih giat!"
+            },
+            status: [
+                {text: "Baru gabung mentoring!", time: "2025-06-05 09:00"}
+            ]
+        }
+    ];
+    // Pilih profile: jika login, pakai user login, jika tidak pakai query id, jika tidak default mentor
+    function getProfileByLoginOrQuery() {
+        if (loggedUser) {
+            // Cari profile yang cocok dengan email login
+            const found = dummyProfiles.find(u => u.email === loggedUser.email);
+            if (found) return found;
+        }
+        // fallback: query id
+        const id = parseInt(getQueryParam('id') || '1');
+        return dummyProfiles.find(u => u.id === id) || dummyProfiles[0];
+    }
+    function renderProfile() {
+        const user = getProfileByLoginOrQuery();
+        // Jika user tidak login, redirect ke Login.html
+        if (!localStorage.getItem('dummyUser')) {
+            window.location.href = 'Login.html';
+            return;
+        }
+        let html = `<div class='profile-card'>`;
+        html += `<div class='profile-info'>`;
+        html += `<h2>${user.name} <span class='profile-role'>${user.role === 'mentor' ? 'Mentor' : 'Pelajar'}</span></h2>`;
+        html += `<div class='profile-bio'><b>Email:</b> ${user.email}<br>`;
+        for (const key in user.biodata) {
+            html += `<b>${key}:</b> ${user.biodata[key]}<br>`;
+        }
+        html += `</div>`;
+        html += `<div class='profile-status'><h3>Status</h3><ul id='status-list'>`;
+        user.status.forEach(s => {
+            html += `<li><span class='status-text'>${s.text}</span> <span class='status-time'>${s.time}</span></li>`;
+        });
+        html += `</ul>`;
+        html += `<form id='status-form'><input type='text' id='status-input' placeholder='Update status...' maxlength='120' required><button type='submit'>Update</button></form>`;
+        html += `</div>`;
+        // Tambahkan tombol logout di profile
+        html += `<div style='margin-top:24px;text-align:center;'><button id='profile-logout-btn' type='button' style='background:#e74c3c;color:#fff;font-weight:bold;border:none;border-radius:6px;padding:10px 32px;font-size:1.1em;cursor:pointer;'>Logout</button></div>`;
+        html += `</div></div>`;
+        document.getElementById('profile-section').innerHTML = html;
+        // Status update
+        document.getElementById('status-form').onsubmit = function(e) {
+            e.preventDefault();
+            const val = document.getElementById('status-input').value.trim();
+            if(val) {
+                const now = new Date();
+                const time = now.getFullYear()+"-"+String(now.getMonth()+1).padStart(2,'0')+"-"+String(now.getDate()).padStart(2,'0')+" "+String(now.getHours()).padStart(2,'0')+":"+String(now.getMinutes()).padStart(2,'0');
+                const li = document.createElement('li');
+                li.innerHTML = `<span class='status-text'>${val}</span> <span class='status-time'>${time}</span>`;
+                document.getElementById('status-list').prepend(li);
+                document.getElementById('status-input').value = '';
+            }
+        }
+        // Logout button event (fix bug: always use global logoutDummy)
+        document.getElementById('profile-logout-btn').onclick = function() {
+            if (window.logoutDummy) window.logoutDummy();
+            else if (typeof logoutDummy === 'function') logoutDummy();
+            window.location.href = 'Login.html'; // redirect manual setelah logout
+        }
+    }
+    renderProfile();
+    </script>
+</body>
+</html>

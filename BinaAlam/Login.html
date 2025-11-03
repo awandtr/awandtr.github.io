@@ -1,0 +1,68 @@
+<!-- Halaman Login & Register -->
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login & Register</title>
+    <link rel="stylesheet" href="Style.css">
+    <script src="Interaction.js"></script>
+</head>
+<body>
+    <div class="container">
+        
+        <div id="login-form">
+            <h2>Login</h2>
+            <div id="login-error" class="error" style="display:none;"></div>
+            <form onsubmit="return handleLogin(event)">
+                <div class="form-group">
+                    <label for="login-email">Email</label>
+                    <input type="email" id="login-email" required>
+                </div>
+                <div class="form-group">
+                    <label for="login-password">Password</label>
+                    <input type="password" id="login-password" required>
+                </div>
+                <button type="submit">Login</button>
+            </form>
+            <div class="switch-link">
+                Belum punya akun? <a onclick="showRegister()">Daftar</a>
+            </div>
+            <button onclick="window.location.href='index.html'" type="button" style="margin-top:18px;background:#2a4d69;color:#fff;font-weight:bold;border:none;border-radius:6px;padding:8px 28px;font-size:1em;cursor:pointer;">Kembali ke Beranda</button>
+        </div>
+        <div id="register-form" style="display:none;">
+            <h2>Register</h2>
+            <div id="register-error" class="error" style="display:none;"></div>
+            <form onsubmit="return handleRegister(event)">
+                <div class="form-group">
+                    <label for="reg-nama">Nama</label>
+                    <input type="text" id="reg-nama" required>
+                </div>
+                <div class="form-group">
+                    <label for="reg-email">Email</label>
+                    <input type="email" id="reg-email" required>
+                </div>
+                <div class="form-group">
+                    <label for="reg-password">Password</label>
+                    <input type="password" id="reg-password" required>
+                </div>
+                <button type="submit">Daftar</button>
+            </form>
+            <div class="switch-link">
+                Sudah punya akun? <a onclick="showLogin()">Login</a>
+            </div>
+            <button onclick="window.location.href='index.html'" type="button" style="margin-top:18px;background:#2a4d69;color:#fff;font-weight:bold;border:none;border-radius:6px;padding:8px 28px;font-size:1em;cursor:pointer;">Kembali ke Beranda</button>
+        </div>
+    </div>
+    <script>
+    window.showRegister = function() {
+        document.getElementById('login-form').style.display = 'none';
+        document.getElementById('register-form').style.display = '';
+    }
+    window.showLogin = function() {
+        document.getElementById('register-form').style.display = 'none';
+        document.getElementById('login-form').style.display = '';
+    }
+    </script>
+</body>
+</html>

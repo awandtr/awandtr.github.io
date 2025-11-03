@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Semua Modul Edukasi</title>
+    <link rel="stylesheet" href="Style.css">
+    <style>
+        .modul-filter {
+            margin: 32px auto 18px auto;
+            text-align: center;
+        }
+        .modul-filter select {
+            font-size: 1.1em;
+            padding: 6px 18px;
+            border-radius: 6px;
+            border: 1px solid #bbb;
+        }
+        .modul-grid {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 32px;
+            justify-content: center;
+            margin-bottom: 40px;
+        }
+        .modul-card {
+            background: #fff;
+            border-radius: 14px;
+            box-shadow: 0 2px 12px #0001;
+            padding: 28px 22px 22px 22px;
+            width: 300px;
+            text-align: center;
+            transition: box-shadow .2s;
+        }
+        .modul-card:hover {
+            box-shadow: 0 4px 24px #0002;
+        }
+        .modul-card h3 {
+            margin: 10px 0 8px 0;
+            color: #2a4d69;
+        }
+        .modul-card p {
+            font-size: 1em;
+            color: #444;
+            min-height: 60px;
+        }
+        .modul-btn {
+            display: inline-block;
+            margin-top: 12px;
+            background: #19a89d;
+            color: #fff;
+            padding: 8px 22px;
+            border-radius: 6px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: background .2s;
+            cursor: pointer;
+        }
+        .modul-btn:hover {
+            background: #13877b;
+        }
+        /* Modal */
+        .modul-modal-bg {
+            display: none;
+            position: fixed;
+            z-index: 1000;
+            left: 0; top: 0; right: 0; bottom: 0;
+            background: #0008;
+            align-items: center;
+            justify-content: center;
+        }
+        .modul-modal {
+            background: #fff;
+            border-radius: 12px;
+            max-width: 600px;
+            width: 95vw;
+            padding: 32px 28px 24px 28px;
+            box-shadow: 0 8px 32px #0003;
+            position: relative;
+        }
+        .modul-modal-close {
+            position: absolute;
+            right: 18px; top: 12px;
+            font-size: 1.6em;
+            color: #e74c3c;
+            cursor: pointer;
+            font-weight: bold;
+        }
+        .modul-modal h2 {
+            color: #2a4d69;
+            margin-bottom: 10px;
+        }
+        .modul-modal-content {
+            color: #333;
+            font-size: 1.1em;
+            margin-bottom: 10px;
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <div class="Logo">
+            <a href="index.html"><img src="Icon/Logo.svg" alt="Logo BinaAlam" width="100px" /></a>
+        </div>
+        <div class="Header">
+            <div id="list">
+                <a href="index.html">Home</a>
+                <a href="tentang_kami.html">Tentang Kami</a>
+                <a href="Ruang_belajar.html">Ruang Belajar</a>
+                <a href="Ruang_ekosistem.html">Ruang Ekosistem</a>
+                <a href="Support.html">Support</a>
+                <a href="kontak_kami.html">Kontak Kami</a>
+                <a href="Login.html">Login</a>
+                <a href="Daftar.html">Daftar</a>
+            </div>
+        </div>
+    </nav>
+    <div class="modul-filter">
+        <label for="jenjang">Pilih Jenjang/Kategori: </label>
+        <select id="jenjang">
+            <option value="all">Semua</option>
+            <option value="SD">SD</option>
+            <option value="SMP">SMP</option>
+            <option value="SMA">SMA</option>
+            <option value="SMK">SMK</option>
+            <option value="Mahasiswa">Mahasiswa</option>
+        </select>
+    </div>
+    <div class="modul-grid" id="modul-list"></div>
+    <!-- Modal baca online -->
+    <div class="modul-modal-bg" id="modul-modal-bg">
+        <div class="modul-modal">
+            <span class="modul-modal-close" onclick="closeModulModal()">&times;</span>
+            <h2 id="modul-modal-title"></h2>
+            <div class="modul-modal-content" id="modul-modal-content"></div>
+        </div>
+    </div>
+    <div class = "footer">
+        <div class = "contactlink">
+            <h2>Contact Us</h2>
+            <a href=""> <img src="instagram_logo.svg" alt=""></a>
+            <a href=""> <img src="Icon/akar-icons_x-fill@2x.svg" alt=""></a>
+            <a href=""> <img src="Icon/youtube_logo.svg" alt=""></a>
+        </div> 
+    </div>
+    <script src="Interaction.js"></script>
+    <script>
+    // Data semua modul
+    const modulData = [
+        // SD
+        {
+            jenjang: 'SD',
+            title: 'Matematika Dasar SD',
+            desc: 'Materi lengkap operasi hitung, pecahan, dan soal cerita untuk SD kelas 1-6. Disertai latihan soal dan pembahasan.',
+            icon: 'Icon/sd ahh.svg',
+            content: 'Bab 1: Penjumlahan & Pengurangan\nBab 2: Perkalian & Pembagian\nBab 3: Pecahan\nBab 4: Soal Cerita\n\nLatihan soal dan pembahasan tersedia di setiap bab.',
+            pdf: '#'
+        },
+        {
+            jenjang: 'SD',
+            title: 'IPA: Sains untuk SD',
+            desc: 'Pengenalan sains dasar, lingkungan, makhluk hidup, dan percobaan sederhana. Cocok untuk SD kelas 3-6.',
+            icon: 'Icon/sd ahh.svg',
+            content: 'Bab 1: Makhluk Hidup dan Lingkungan\nBab 2: Sifat Benda\nBab 3: Percobaan Sains Sederhana\n\nSetiap bab dilengkapi gambar dan eksperimen.',
+            pdf: '#'
+        },
+        // SMP
+        {
+            jenjang: 'SMP',
+            title: 'Matematika SMP',
+            desc: 'Materi aljabar, geometri, dan persamaan linear untuk kelas 7-9. Dilengkapi latihan soal dan pembahasan.',
+            icon: 'Icon/sd ahh.svg',
+            content: 'Bab 1: Aljabar\nBab 2: Geometri Dasar\nBab 3: Persamaan Linear\n\nLatihan soal tersedia di akhir bab.',
+            pdf: '#'
+        },
+        {
+            jenjang: 'SMP',
+            title: 'IPA Terpadu SMP',
+            desc: 'Fisika, Biologi, dan Kimia dasar untuk SMP. Penjelasan konsep dan eksperimen sederhana.',
+            icon: 'Icon/sd ahh.svg',
+            content: 'Bab 1: Fisika Dasar\nBab 2: Biologi Dasar\nBab 3: Kimia Dasar\n\nDisertai eksperimen dan latihan soal.',
+            pdf: '#'
+        },
+        // SMA
+        {
+            jenjang: 'SMA',
+            title: 'Matematika Wajib & Peminatan',
+            desc: 'Materi lengkap matematika wajib dan peminatan (IPA/IPS) untuk kelas 10-12. Dilengkapi latihan UTBK.',
+            icon: 'Icon/Anaksma.svg',
+            content: 'Bab 1: Fungsi & Persamaan\nBab 2: Limit & Turunan\nBab 3: Statistika\n\nLatihan UTBK di setiap bab.',
+            pdf: '#'
+        },
+        {
+            jenjang: 'SMA',
+            title: 'Fisika SMA',
+            desc: 'Konsep dasar fisika, rumus, dan contoh soal. Cocok untuk persiapan ujian sekolah dan UTBK.',
+            icon: 'Icon/Anaksma.svg',
+            content: 'Bab 1: Gerak Lurus\nBab 2: Hukum Newton\nBab 3: Listrik\n\nDisertai contoh soal dan pembahasan.',
+            pdf: '#'
+        },
+        // SMK
+        {
+            jenjang: 'SMK',
+            title: 'Teknik Komputer & Jaringan',
+            desc: 'Dasar jaringan komputer, troubleshooting, dan praktik konfigurasi jaringan untuk SMK TKJ.',
+            icon: 'Icon/smk.svg',
+            content: 'Bab 1: Pengantar Jaringan\nBab 2: Praktik Konfigurasi\nBab 3: Troubleshooting\n\nDisertai studi kasus.',
+            pdf: '#'
+        },
+        {
+            jenjang: 'SMK',
+            title: 'Akuntansi & Keuangan Lembaga',
+            desc: 'Materi akuntansi dasar, laporan keuangan, dan latihan soal untuk jurusan AKL SMK.',
+            icon: 'Icon/smk.svg',
+            content: 'Bab 1: Dasar Akuntansi\nBab 2: Laporan Keuangan\nBab 3: Latihan Soal\n\nCocok untuk AKL SMK.',
+            pdf: '#'
+        },
+        // Mahasiswa
+        {
+            jenjang: 'Mahasiswa',
+            title: 'Matematika Dasar Kuliah',
+            desc: 'Materi kalkulus, aljabar linier, dan statistika dasar untuk mahasiswa baru semua jurusan.',
+            icon: 'Icon/mahasiaw.svg',
+            content: 'Bab 1: Kalkulus\nBab 2: Aljabar Linier\nBab 3: Statistika\n\nLatihan soal di setiap bab.',
+            pdf: '#'
+        },
+        {
+            jenjang: 'Mahasiswa',
+            title: 'Kewirausahaan',
+            desc: 'Modul pengantar bisnis, startup, dan studi kasus UMKM. Cocok untuk mahasiswa semua fakultas.',
+            icon: 'Icon/mahasiaw.svg',
+            content: 'Bab 1: Dasar Bisnis\nBab 2: Studi Kasus UMKM\nBab 3: Rencana Bisnis\n\nDisertai tugas proyek.',
+            pdf: '#'
+        }
+    ];
+    // Render modul
+    function renderModulList() {
+        const jenjang = document.getElementById('jenjang').value;
+        const list = document.getElementById('modul-list');
+        list.innerHTML = '';
+        const filtered = jenjang === 'all' ? modulData : modulData.filter(m => m.jenjang === jenjang);
+        if (filtered.length === 0) {
+            list.innerHTML = '<p style="text-align:center;width:100%">Belum ada modul untuk kategori ini.</p>';
+            return;
+        }
+        filtered.forEach((m, i) => {
+            const card = document.createElement('div');
+            card.className = 'modul-card';
+            card.innerHTML = `
+                <img src="${m.icon}" alt="${m.title}" width="80" style="margin-bottom:10px;">
+                <h3>${m.title}</h3>
+                <p>${m.desc}</p>
+                <button class="modul-btn" onclick="openModulModal(${i})">Baca Online</button>
+                <a href="${m.pdf}" class="modul-btn" style="margin-left:8px;">Download PDF</a>
+            `;
+            list.appendChild(card);
+        });
+    }
+    document.getElementById('jenjang').onchange = renderModulList;
+    renderModulList();
+    // Modal logic
+    function openModulModal(idx) {
+        const m = modulData[idx];
+        document.getElementById('modul-modal-title').textContent = m.title;
+        document.getElementById('modul-modal-content').innerHTML = m.content.replace(/\n/g, '<br>');
+        document.getElementById('modul-modal-bg').style.display = 'flex';
+    }
+    function closeModulModal() {
+        document.getElementById('modul-modal-bg').style.display = 'none';
+    }
+    window.openModulModal = openModulModal;
+    window.closeModulModal = closeModulModal;
+    </script>
+</body>
+</html>

@@ -1,0 +1,384 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="Style.css">
+    <title>Ruang_ekosistem</title>
+    <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
+    <style>
+.btn-eko {
+  background: linear-gradient(90deg, #2a4d69 60%, #4b86b4 100%);
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  padding: 10px 28px;
+  margin: 0 8px 8px 0;
+  font-size: 1.08em;
+  font-weight: 600;
+  box-shadow: 0 2px 8px #0001;
+  cursor: pointer;
+  transition: background 0.2s, transform 0.15s, box-shadow 0.2s;
+  outline: none;
+  letter-spacing: 0.5px;
+}
+.btn-eko:hover, .btn-eko.active {
+  background: linear-gradient(90deg, #4b86b4 60%, #2a4d69 100%);
+  color: #fff;
+  transform: translateY(-2px) scale(1.04);
+  box-shadow: 0 4px 16px #2a4d6922;
+}
+.btn-eko:active {
+  background: #16324f;
+  color: #fff;
+}
+@media (max-width: 700px) {
+  .btn-eko {padding: 8px 12px; font-size: 0.98em;}
+}
+</style>
+</head>
+<body>
+    <nav>
+        <div class="Logo">
+            <a href="index.html"><img src="/BinaAlam/Icon/Logo.svg" alt="Logo BinaAlam" width="100px" /></a>
+        </div>
+        <div class="Header">
+            <div id="list">
+            <a href="index.html">Home</a>
+            <a href="tentang_kami.html">Tentang Kami</a>
+            <a href="Ruang_belajar.html">Ruang Belajar</a>
+            <a href="Ruang_ekosistem.html">Ruang Ekosistem</a>
+            <a href="Support.html">Support</a>
+            <a href="kontak_kami.html">Kontak Kami</a>
+            <a href="Login.html">Login</a>
+            <a href="Daftar.html">Daftar</a>
+            </div>
+        </div>
+    </nav>
+<hr>
+    <div class="interactive-map" style="text-align:center; margin: 40px 0;">
+        <h2>Peta Interaktif Ekosistem</h2>
+        <div style="margin-bottom:18px;">
+            <button class="btn-eko" data-tipe="darat">Ekosistem Darat</button>
+            <button class="btn-eko" data-tipe="laut">Ekosistem Laut</button>
+            <button class="btn-eko" data-tipe="campuran">Campuran</button>
+        </div>
+        <div id="ekosistem-info" style="margin-bottom:18px;font-size:1.1em;color:#2a4d69;font-weight:500;">
+            Ruang Ekosistem BinaAlam mencakup ekosistem darat (SDG 15) <b>dan ekosistem laut (SDG 14)</b>. Anda dapat berpartisipasi dalam aksi pelestarian hutan, sungai, pesisir, dan laut.
+        </div>
+        <div id="map-laut" style="width:80%;height:400px;display:none;margin:0 auto 18px auto;border-radius:12px;overflow:hidden;"></div>
+        <iframe 
+            id="iframe-darat"
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d31693.835123456!2d106.827153!3d-6.175110!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e69f3eecf8b8b8b%3A0x301e8f1fc28b8b8b!2sJakarta!5e0!3m2!1sen!2sid!4v1620000000000!5m2!1sen!2sid" 
+            width="80%" 
+            height="400" 
+            style="border:0; border-radius:12px;" 
+            allowfullscreen="" 
+            loading="lazy" 
+            referrerpolicy="no-referrer-when-downgrade">
+        </iframe>
+    </div>
+    <script>
+    function filterEkosistem(tipe) {
+        var info = document.getElementById('ekosistem-info');
+        if (!info) return;
+        // Filter visual section
+        var sections = document.querySelectorAll('.eko-section');
+        sections.forEach(function(sec) {
+            var types = sec.getAttribute('data-ekosistem');
+            if (tipe === 'campuran' || types.includes(tipe)) {
+                sec.style.display = '';
+            } else {
+                sec.style.display = 'none';
+            }
+        });
+        // Info text
+        if (tipe === 'darat') {
+            info.innerHTML = 'Ekosistem <b>Darat</b> (SDG 15): Fokus pada pelestarian hutan, reboisasi, keanekaragaman hayati darat, dan aksi lingkungan di wilayah daratan.';
+        } else if (tipe === 'laut') {
+            info.innerHTML = 'Ekosistem <b>Laut</b> (SDG 14): Fokus pada pelestarian laut, pesisir, sungai, pembersihan sampah laut, dan perlindungan biota laut.';
+        } else {
+            info.innerHTML = 'Ruang Ekosistem BinaAlam mencakup ekosistem darat (SDG 15) <b>dan ekosistem laut (SDG 14)</b>. Anda dapat berpartisipasi dalam aksi pelestarian hutan, sungai, pesisir, dan laut.';
+        }
+    }
+    // Integrasi peta laut dengan Leaflet
+function showMapEkosistem(tipe) {
+    var mapLaut = document.getElementById('map-laut');
+    var iframeDarat = document.getElementById('iframe-darat');
+    if (!mapLaut || !iframeDarat) return;
+    if (tipe === 'laut') {
+        mapLaut.style.display = '';
+        iframeDarat.style.display = 'none';
+        // Perbaikan: selalu inisialisasi ulang Leaflet jika map-laut kosong
+        if (!mapLaut._leaflet_id) {
+            var map = L.map('map-laut').setView([-2.5, 120], 4.5);
+            L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+                attribution: '&copy; OpenStreetMap & Leaflet',
+                maxZoom: 18
+            }).addTo(map);
+            L.marker([-5.8, 110]).addTo(map).bindPopup('Aksi Bersih Laut Jawa');
+            L.marker([-8.2, 124.5]).addTo(map).bindPopup('Aksi Pantai Flores');
+        } else {
+            // Jika sudah pernah diinisialisasi, force resize agar tidak blank
+            setTimeout(function(){
+                mapLaut._leaflet_map && mapLaut._leaflet_map.invalidateSize();
+            }, 100);
+        }
+    } else {
+        mapLaut.style.display = 'none';
+        iframeDarat.style.display = '';
+    }
+}
+// Integrasi dengan filterEkosistem
+var oldFilterEkosistem = filterEkosistem;
+filterEkosistem = function(tipe) {
+    oldFilterEkosistem(tipe);
+    showMapEkosistem(tipe);
+}
+// Default: tampilkan peta darat/campuran
+showMapEkosistem('campuran');
+    </script>
+    <!-- Fitur tambahan organisasi lingkungan -->
+    <div class="container">
+        <!-- Sistem Pendaftaran Relawan -->
+        <section class="eko-section" data-ekosistem="campuran darat laut">
+            <h3>Pendaftaran Relawan</h3>
+            <form id="form-relawan">
+                <div class="form-group">
+                    <label>Nama</label>
+                    <input type="text" id="relawan-nama" required>
+                </div>
+                <div class="form-group">
+                    <label>Email</label>
+                    <input type="email" id="relawan-email" required>
+                </div>
+                <div class="form-group">
+                    <label>Wilayah Aksi</label>
+                    <input type="text" id="relawan-wilayah" required>
+                </div>
+                <button type="submit">Daftar Relawan</button>
+                <div id="relawan-msg" class="error" style="display:none;"></div>
+            </form>
+        </section>
+        <!-- Pelaporan Dampak Kegiatan -->
+        <section class="eko-section" data-ekosistem="campuran darat laut">
+            <h3>Pelaporan Dampak Kegiatan</h3>
+            <form id="form-dampak">
+                <div class="form-group">
+                    <label>Jenis Kegiatan</label>
+                    <select id="dampak-jenis" required>
+                        <option value="">Pilih</option>
+                        <option value="Penanaman Pohon">Penanaman Pohon</option>
+                        <option value="Pembersihan Sampah">Pembersihan Sampah</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label>Jumlah (misal: pohon/sampah kg)</label>
+                    <input type="number" id="dampak-jumlah" required>
+                </div>
+                <button type="submit">Laporkan Dampak</button>
+                <div id="dampak-msg" class="error" style="display:none;"></div>
+            </form>
+        </section>
+        <!-- Upload Foto & Lokasi Sampah Laut -->
+        <section class="eko-section" data-ekosistem="laut campuran">
+            <h3>Upload Foto & Lokasi Sampah Laut</h3>
+            <form id="form-sampah">
+                <div class="form-group">
+                    <label>Foto Sampah Laut</label>
+                    <input type="file" id="sampah-foto" accept="image/*" required>
+                </div>
+                <div class="form-group">
+                    <label>Lokasi</label>
+                    <input type="text" id="sampah-lokasi" required>
+                </div>
+                <button type="submit">Upload</button>
+                <div id="sampah-msg" class="error" style="display:none;"></div>
+            </form>
+        </section>
+        <!-- Data Visualisasi Tingkat Polusi per Wilayah -->
+        <section class="eko-section" data-ekosistem="campuran darat laut">
+            <h3>Visualisasi Tingkat Polusi per Wilayah</h3>
+            <canvas id="chart-polusi" width="100%" height="200"></canvas>
+        </section>
+        <!-- Toko Online Produk Ramah Lingkungan & Label Jejak Karbon -->
+        <section class="eko-section" data-ekosistem="campuran darat laut">
+            <h3>Toko Online Produk Ramah Lingkungan</h3>
+            <div class="produk-list">
+                <div class="produk-item">
+                    <b>Botol Minum Stainless</b><br>
+                    <span>Rp 50.000</span><br>
+                    <span class="label-karbon">Jejak Karbon: 0.5kg CO₂</span>
+                    <button>Beli</button>
+                </div>
+                <div class="produk-item">
+                    <b>Tas Belanja Kain</b><br>
+                    <span>Rp 20.000</span><br>
+                    <span class="label-karbon">Jejak Karbon: 0.2kg CO₂</span>
+                    <button>Beli</button>
+                </div>
+            </div>
+        </section>
+        <!-- Blog Edukasi -->
+        <section class="eko-section" data-ekosistem="campuran darat laut">
+            <h3>Blog Edukasi</h3>
+            <ul>
+                <li><a href="#">Tips Mengurangi Sampah Plastik</a></li>
+                <li><a href="#">Cara Memilih Produk Ramah Lingkungan</a></li>
+            </ul>
+        </section>
+        <!-- Peta Interaktif Deforestasi & Reboisasi -->
+        <section class="eko-section" data-ekosistem="darat campuran">
+            <h3>Peta Interaktif Deforestasi & Reboisasi</h3>
+            <iframe src="https://www.globalforestwatch.org/embed/map/" width="100%" height="300" style="border:0; border-radius:12px;" allowfullscreen loading="lazy"></iframe>
+        </section>
+        <!-- Laporan Penebangan Liar -->
+        <section class="eko-section" data-ekosistem="darat campuran">
+            <h3>Laporan Penebangan Liar</h3>
+            <form id="form-penebangan">
+                <div class="form-group">
+                    <label>Lokasi</label>
+                    <input type="text" id="penebangan-lokasi" required>
+                </div>
+                <div class="form-group">
+                    <label>Deskripsi</label>
+                    <textarea id="penebangan-deskripsi" required></textarea>
+                </div>
+                <button type="submit">Laporkan</button>
+                <div id="penebangan-msg" class="error" style="display:none;"></div>
+            </form>
+        </section>
+        <!-- Statistik Perubahan Tutupan Hutan -->
+        <section class="eko-section" data-ekosistem="darat campuran">
+            <h3>Statistik Perubahan Tutupan Hutan</h3>
+            <canvas id="chart-hutan" width="100%" height="200"></canvas>
+        </section>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="Interaction.js"></script>
+    <script>
+document.addEventListener('DOMContentLoaded', function() {
+  // Event tombol filter ekosistem (delegasi ke Interaction.js)
+  var btns = document.querySelectorAll('.btn-eko');
+  btns.forEach(function(btn) {
+    btn.addEventListener('click', function() {
+      btns.forEach(function(b) { b.classList.remove('active'); });
+      btn.classList.add('active');
+      var tipe = btn.getAttribute('data-tipe');
+      if (typeof filterEkosistem === 'function') filterEkosistem(tipe);
+      if (typeof showMapEkosistem === 'function') showMapEkosistem(tipe);
+    });
+  });
+  // Default: aktifkan campuran
+  var defaultBtn = document.querySelector('.btn-eko[data-tipe="campuran"]');
+  if(defaultBtn) {
+    defaultBtn.classList.add('active');
+    if (typeof filterEkosistem === 'function') filterEkosistem('campuran');
+    if (typeof showMapEkosistem === 'function') showMapEkosistem('campuran');
+  }
+});
+document.addEventListener('DOMContentLoaded', updateNavbarUser);
+// Dummy chart polusi
+if(document.getElementById('chart-polusi')) {
+    new Chart(document.getElementById('chart-polusi').getContext('2d'), {
+        type: 'bar',
+        data: {
+            labels: ['Jakarta', 'Bandung', 'Surabaya', 'Medan'],
+            datasets: [{
+                label: 'Polusi (PM2.5)',
+                data: [80, 60, 70, 50],
+                backgroundColor: ['#2a4d69', '#4b86b4', '#adcbe3', '#e7eff6']
+            }]
+        },
+        options: {responsive:true, plugins:{legend:{display:false}}}
+    });
+}
+// Dummy chart hutan
+if(document.getElementById('chart-hutan')) {
+    new Chart(document.getElementById('chart-hutan').getContext('2d'), {
+        type: 'line',
+        data: {
+            labels: ['2015', '2017', '2019', '2021', '2023'],
+            datasets: [{
+                label: 'Luas Tutupan Hutan (ha)',
+                data: [900000, 850000, 800000, 780000, 760000],
+                borderColor: '#2a4d69',
+                fill: false
+            }]
+        },
+        options: {responsive:true}
+    });
+}
+// Validasi form relawan
+document.getElementById('form-relawan').onsubmit = function(e) {
+    e.preventDefault();
+    var nama = document.getElementById('relawan-nama').value.trim();
+    var email = document.getElementById('relawan-email').value.trim();
+    var wilayah = document.getElementById('relawan-wilayah').value.trim();
+    var msg = document.getElementById('relawan-msg');
+    if(nama && email && wilayah) {
+        msg.style.display = 'none';
+        alert('Pendaftaran relawan berhasil!');
+        this.reset();
+    } else {
+        msg.textContent = 'Semua field wajib diisi!';
+        msg.style.display = 'block';
+    }
+};
+// Validasi form dampak
+document.getElementById('form-dampak').onsubmit = function(e) {
+    e.preventDefault();
+    var jenis = document.getElementById('dampak-jenis').value;
+    var jumlah = document.getElementById('dampak-jumlah').value;
+    var msg = document.getElementById('dampak-msg');
+    if(jenis && jumlah) {
+        msg.style.display = 'none';
+        alert('Laporan dampak berhasil!');
+        this.reset();
+    } else {
+        msg.textContent = 'Semua field wajib diisi!';
+        msg.style.display = 'block';
+    }
+};
+// Validasi form sampah
+document.getElementById('form-sampah').onsubmit = function(e) {
+    e.preventDefault();
+    var foto = document.getElementById('sampah-foto').value;
+    var lokasi = document.getElementById('sampah-lokasi').value.trim();
+    var msg = document.getElementById('sampah-msg');
+    if(foto && lokasi) {
+        msg.style.display = 'none';
+        alert('Upload berhasil!');
+        this.reset();
+    } else {
+        msg.textContent = 'Semua field wajib diisi!';
+        msg.style.display = 'block';
+    }
+};
+// Validasi form penebangan
+document.getElementById('form-penebangan').onsubmit = function(e) {
+    e.preventDefault();
+    var lokasi = document.getElementById('penebangan-lokasi').value.trim();
+    var desk = document.getElementById('penebangan-deskripsi').value.trim();
+    var msg = document.getElementById('penebangan-msg');
+    if(lokasi && desk) {
+        msg.style.display = 'none';
+        alert('Laporan penebangan liar berhasil!');
+        this.reset();
+    } else {
+        msg.textContent = 'Semua field wajib diisi!';
+        msg.style.display = 'block';
+    }
+};
+    </script>
+    <div class = "footer">
+    <div class = "contactlink">
+            <h2>Contact Us</h2>
+            <a href="https://www.instagram.com/"> <img src="/BinaAlam/Icon/instagram_logo.svg" alt=""></a>
+            <a href="https://www.twitter.com/"> <img src="/BinaAlam/Icon/akar-icons_x-fill@2x.svg" alt=""></a>
+            <a href="https://www.youtube.com/"> <img src="/BinaAlam/Icon/youtube_logo.svg" alt=""></a>
+        </div>
+</div>
+</body>
+</html>
