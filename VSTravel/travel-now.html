@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VSTravel - Travel Now</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
+</head>
+<body>
+    <!-- Header Section -->
+    <header>
+        <div class="container">
+            <div class="logo">
+                <a href="index.html">
+                    <h1>VS<span>Travel</span></h1>
+                </a>
+            </div>
+            <nav>
+                <div class="menu-toggle">
+                    <i class="fas fa-bars"></i>
+                </div>
+                <ul class="nav-menu">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="destination.html">Destinations</a></li>
+                    <li><a href="contact.html">Contact Us</a></li>
+                    <li><a href="about.html">About Us</a></li>
+                    <li><a href="travel-now.html" class="active">Travel Now</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+    
+    <!-- Page Banner -->
+    <section class="page-banner">
+    </section>
+
+    <!-- Hero Section -->
+    <section class="page-hero travel-hero">
+        <div class="container">
+            <div class="hero-content">
+                <h2>Book Your Dream Adventure</h2>
+                <p>Start your journey with VSTravel today</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Benefits Section -->
+    <section class="benefits-section">
+        <div class="container">
+            <div class="section-title">
+                <h2>Why Choose VSTravel?</h2>
+                <div class="underline"></div>
+            </div>
+            <div class="benefits-content">
+                <div class="benefits-intro">
+                    <p>When you book with VSTravel, you're choosing more than just a vacation - you're selecting an expertly crafted experience with countless benefits:</p>
+                </div>
+                <div class="benefits-grid">
+                    <div class="benefit-card">
+                        <div class="benefit-icon">
+                            <i class="fas fa-map-marked-alt"></i>
+                        </div>
+                        <div class="benefit-info">
+                            <h3>Expert Local Guides</h3>
+                            <p>Our knowledgeable guides provide authentic insights and take you to hidden gems that most tourists never discover.</p>
+                        </div>
+                    </div>
+                    <div class="benefit-card">
+                        <div class="benefit-icon">
+                            <i class="fas fa-hotel"></i>
+                        </div>
+                        <div class="benefit-info">
+                            <h3>Premium Accommodations</h3>
+                            <p>Stay in carefully selected hotels and resorts that offer comfort, excellent service, and authentic local character.</p>
+                        </div>
+                    </div>
+                    <div class="benefit-card">
+                        <div class="benefit-icon">
+                            <i class="fas fa-shield-alt"></i>
+                        </div>
+                        <div class="benefit-info">
+                            <h3>24/7 Support</h3>
+                            <p>Travel with peace of mind knowing our dedicated support team is available around the clock throughout your journey.</p>
+                        </div>
+                    </div>
+                    <div class="benefit-card">
+                        <div class="benefit-icon">
+                            <i class="fas fa-route"></i>
+                        </div>
+                        <div class="benefit-info">
+                            <h3>Customized Itineraries</h3>
+                            <p>Your travel package is tailored to your preferences, ensuring you experience exactly what matters most to you.</p>
+                        </div>
+                    </div>
+                    <div class="benefit-card">
+                        <div class="benefit-icon">
+                            <i class="fas fa-hand-holding-heart"></i>
+                        </div>
+                        <div class="benefit-info">
+                            <h3>Responsible Tourism</h3>
+                            <p>We partner with local communities and organizations to ensure your travel has a positive impact on the destinations you visit.</p>
+                        </div>
+                    </div>
+                    <div class="benefit-card">
+                        <div class="benefit-icon">
+                            <i class="fas fa-wallet"></i>
+                        </div>
+                        <div class="benefit-info">
+                            <h3>Value for Money</h3>
+                            <p>Our established relationships with partners allow us to offer premium experiences at competitive prices.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Booking Form Section -->
+    <section class="booking-section">
+        <div class="container">
+            <div class="section-title">
+                <h2>Book Your Travel</h2>
+                <div class="underline"></div>
+            </div>
+            <div class="booking-content">
+                <div class="booking-info">
+                    <h3>How It Works</h3>
+                    <br>
+                    <div class="booking-steps">
+                        <div class="step">
+                            <div class="step-info">
+                                <h4>1. Complete the Form</h4>
+                                <p>Fill out your details and travel preferences in our booking form.</p>
+                            </div>
+                        </div>
+                        <div class="step">
+                            <div class="step-info">
+                                <h4>2. Consultation Call</h4>
+                                <p>A travel consultant will contact you within 24 hours to discuss your trip.</p>
+                            </div>
+                        </div>
+                        <div class="step">
+                            <div class="step-info">
+                                <h4>3. Customized Proposal</h4>
+                                <p>Receive a tailored travel itinerary based on your preferences and budget.</p>
+                            </div>
+                        </div>
+                        <div class="step">
+                            <div class="step-info">
+                                <h4>4. Confirm & Pay</h4>
+                                <p>Review your itinerary, make any adjustments, and secure your booking with a deposit.</p>
+                            </div>
+                        </div>
+                        <div class="step">
+                            <div class="step-info">
+                                <h4>5. Enjoy Your Trip</h4>
+                                <p>Receive all travel documents and embark on your VSTravel adventure!</p>
+                            </div>
+                        </div>
+                        <br>
+                    </div>
+                </div>
+                <br>
+                <div class="booking-form-container">
+                    <h3>Enter Your Details</h3>
+                    <br>
+
+                    <form id="bookingForm" class="booking-form">
+                        <div class="form-message" id="formMessage"></div>
+                        
+                        <div class="form-group">
+                            <label for="fullName">Full Name <span class="required">*</span></label>
+                            <br>
+                            <input type="text" id="fullName" name="fullName" placeholder="Enter your full name">
+                            <span class="error-message" id="fullNameError"></span>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="email">Email Address <span class="required">*</span></label>
+                            <br>
+                            <input type="email" id="email" name="email" placeholder="Enter your email address">
+                            <span class="error-message" id="emailError"></span>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="phone">Phone Number <span class="required">*</span></label>
+                            <br>
+                            <input type="tel" id="phone" name="phone" placeholder="Enter your phone number">
+                            <span class="error-message" id="phoneError"></span>
+                        </div>
+                        
+                        <div class="form-row">
+                            <div class="form-group half">
+                                <label for="participants">Number of Participants <span class="required">*</span></label>
+                                <br>
+                                <input type="number" id="participants" name="participants" min="1" placeholder="Number of travelers">
+                                <span class="error-message" id="participantsError"></span>
+                            </div>
+                            
+                            <div class="form-group half">
+                                <label for="destination">Preferred Destination <span class="required">*</span></label>
+                                <br>
+                                <select id="destination" name="destination">
+                                    <option value="">Select a destination</option>
+                                    <option value="Bali">Bali</option>
+                                    <option value="Raja Ampat">Raja Ampat</option>
+                                    <option value="Yogyakarta">Yogyakarta</option>
+                                    <option value="Lombok">Lombok</option>
+                                    <option value="Labuan Bajo">Labuan Bajo</option>
+                                    <option value="Lombok">Lombok</option>
+                                    <option value="Other">Other (please specify)</option>
+                                </select>
+                                <span class="error-message" id="destinationError"></span>
+                            </div>
+                        </div>
+                        
+                        <div class="form-group" id="otherDestinationGroup" style="display: none;">
+                            <label for="otherDestination">Specify Other Destination:</label>
+                            <input type="text" id="otherDestination" name="otherDestination" placeholder="Enter your preferred destination">
+                            <span class="error-message" id="otherDestinationError"></span>
+                        </div>
+                        
+                        <div class="form-row">
+                            <div class="form-group half">
+                                <label for="departureDate">Departure Date <span class="required">*</span></label>
+                                <br>
+                                <input type="date" id="departureDate" name="departureDate">
+                                <span class="error-message" id="departureDateError"></span>
+                            </div>
+                            
+                            <div class="form-group half">
+                                <label for="returnDate">Return Date <span class="required">*</span></label>
+                                <br>
+                                <input type="date" id="returnDate" name="returnDate">
+                                <span class="error-message" id="returnDateError"></span>
+                            </div>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="travelType">Travel Type: <span class="required">*</span></label>
+                            <br>
+                            <div class="checkbox-group">
+                                <label class="checkbox-label">
+                                    <input type="checkbox" name="travelType" value="Cultural"> Cultural Experience
+                                </label>
+                                <label class="checkbox-label">
+                                    <input type="checkbox" name="travelType" value="Beach"> Beach Holiday
+                                </label>
+                                <label class="checkbox-label">
+                                    <input type="checkbox" name="travelType" value="Adventure"> Adventure
+                                </label>
+                                <label class="checkbox-label">
+                                    <input type="checkbox" name="travelType" value="Culinary"> Culinary Tour
+                                </label>
+                                <label class="checkbox-label">
+                                    <input type="checkbox" name="travelType" value="Wellness"> Wellness & Spa
+                                </label>
+                                <label class="checkbox-label">
+                                    <input type="checkbox" name="travelType" value="Other"> Other
+                                </label>
+                                <span class="error-message" id="travelTypeError"></span>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="specialRequests">Special Requests</label>
+                            <br>
+                            <textarea id="specialRequests" name="specialRequests" rows="4" placeholder="Please share any special requirements or questions"></textarea>
+                        </div>
+                        <div class="form-group terms-group">
+                            <label class="checkbox-label terms-label">
+                                <input type="checkbox" id="termsAgreed" name="termsAgreed">
+                                <span>I agree to VSTravel's <a href="#" class="terms-link">Terms & Conditions</a> and <a href="#" class="privacy-link">Privacy Policy</a></span>
+                            </label>
+                            <span class="error-message" id="termsAgreedError"></span>
+                        </div>
+                        
+                        <div class="form-group submit-group">
+                            <button type="submit" class="btn-primary submit-btn">Submit Booking Request</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+   <!-- Footer Section -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-about">
+                    <h3>VS<span>Travel</span></h3>
+                    <p>Your trusted travel companion since 2020. We provide quality travel experiences with exceptional service.</p>
+                    <div class="social-links">
+                        <a href="https://www.facebook.com/"><i class="fab fa-facebook-f"></i></a>
+                        <a href="https://x.com/home"><i class="fab fa-twitter"></i></a>
+                        <a href="https://www.instagram.com/"><i class="fab fa-instagram"></i></a>
+                        <a href="https://www.linkedin.com/"><i class="fab fa-linkedin-in"></i></a>
+                    </div>
+                </div>
+                <div class="footer-links">
+                    <h3>Links</h3>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="destination.html">Destinations</a></li>
+                        <li><a href="contact.html">Contact Us</a></li>
+                        <li><a href="about.html">About Us</a></li>
+                        <li><a href="travel-now.html">Travel Now</a></li>
+                    </ul>
+                </div>
+                <div class="footer-contact">
+                    <h3>Contact Info</h3>
+                    <p><i class="fas fa-map-marker-alt"></i> Head Office: Jl. Sudirman No. 123, Jakarta</p>
+                    <p><i class="fas fa-phone"></i> +62 81234567890</p>
+                    <p><i class="fas fa-envelope"></i> info@vstravel.com</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 VSTravel. All Rights Reserved.</p>
+            </div>
+        </div>
+    </footer>
+    
+    <!-- Success Popup -->
+    <div id="successPopup" class="popup">
+        <div class="popup-content">
+            <span class="close-btn" id="closePopup">&times;</span>
+            <h3>Booking Successful!</h3>
+            <p>Thank you for booking with VS<span>Travel</span>. Our consultant will contact you within 24 hours.</p>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

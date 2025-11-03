@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VSTravel - Destinations</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
+</head>
+<body>
+    <!-- Header Section -->
+    <header>
+        <div class="container">
+            <div class="logo">
+                <a href="index.html">
+                    <h1>VS<span>Travel</span></h1>
+                </a>
+            </div>
+            <nav>
+                <div class="menu-toggle">
+                    <i class="fas fa-bars"></i>
+                </div>
+                <ul class="nav-menu">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="destination.html" class="active">Destinations</a></li>
+                    <li><a href="contact.html">Contact Us</a></li>
+                    <li><a href="about.html">About Us</a></li>
+                    <li><a href="travel-now.html">Travel Now</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Page Banner -->
+    <section class="page-banner">
+        <div class="container">
+            <div class="section-title">
+                <h2>Discover Our Featured Destinations</h2>
+                <div class="underline"></div>
+                <br>
+                <p class="section-description">Experience the beauty and diversity of Indonesia with our featured destinations.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- All Destinations Section -->
+    <section class="all-destinations">
+        <div class="container">
+            <div class="destinations-grid" id="destinations-container">
+                <!-- Bali Destinations -->
+                <div class="destination-card" data-region="bali">
+                    <div class="destination-image">
+                        <img src="images/destinations/bali.jpg" alt="Bali">
+                    </div>
+                    <div class="destination-info">
+                        <h3>Bali</h3>
+                        <p class="location"><i class="fas fa-map-marker-alt"></i>Bali Province</p>
+                        <p class="description">Experience the magical island of the gods with pristine beaches, vibrant culture, and lush landscapes. Enjoy traditional dances, visit ancient temples, and relax on white sand beaches.</p>
+                        <a href="travel-now.html?destination=bali" class="btn-tertiary">Book This Destination</a>
+                    </div>
+                </div>
+                
+                <div class="destination-card" data-region="other">
+                    <div class="destination-image">
+                        <img src="images/destinations/labuan-bajo.jpg" alt="Labuan Bajo">
+                    </div>
+                    <div class="destination-info">
+                        <h3>Labuan Bajo</h3>
+                        <p class="location"><i class="fas fa-map-marker-alt"></i>East Nusa Tenggara</p>
+                        <p class="description">Discover the fishing town known for its beautiful beaches, breathtaking caves, and scenic views. Visit Komodo Island, Padar Island, and enjoy exploring the indeginous village of Wae Rebo.</p>
+                        <a href="travel-now.html?destination=labuan-bajo" class="btn-tertiary">Book This Destination</a>
+                    </div>
+                </div>
+                
+                <div class="destination-card" data-region="other">
+                    <div class="destination-image">
+                        <img src="images/destinations/lombok.jpg" alt="Labuan Bajo">
+                    </div>
+                    <div class="destination-info">
+                        <h3>Lombok</h3>
+                        <p class="location"><i class="fas fa-map-marker-alt"></i>West Nusa Tenggara</p>
+                        <p class="description">Explore the unique and amazing beaches of Lombok. Visit the three Gili Islands, Pink Beach, Mount Rinjani, and delve deeper into learning about the cultures of the Sasak people.</p>
+                        <a href="travel-now.html?destination=lombok" class="btn-tertiary">Book This Destination</a>
+                    </div>
+                </div>
+
+                <!-- Java Destinations -->
+                <div class="destination-card" data-region="java">
+                    <div class="destination-image">
+                        <img src="images/destinations/yogyakarta.jpg" alt="Yogyakarta">
+                    </div>
+                    <div class="destination-info">
+                        <h3>Yogyakarta</h3>
+                        <p class="location"><i class="fas fa-map-marker-alt"></i>Special Region of Yogyakarta</p>
+                        <p class="description">Discover the cultural heart of Java with ancient temples, traditional arts, and royal heritage. Visit Borobudur and Prambanan temples, explore the Sultan's Palace, and shop for batik crafts.</p>
+                        <a href="travel-now.html?destination=yogyakarta" class="btn-tertiary">Book This Destination</a>
+                    </div>
+                </div>
+                
+                <div class="destination-card" data-region="java">
+                    <div class="destination-image">
+                        <img src="images/destinations/mount-bromo.jpg" alt="Mount Bromo">
+                    </div>
+                    <div class="destination-info">
+                        <h3>Mount Bromo</h3>
+                        <p class="location"><i class="fas fa-map-marker-alt"></i>East Java</p>
+                        <p class="description">Witness breathtaking sunrises over the volcanic landscape of Mount Bromo. Experience the unique culture of the Tengger people and trek across the sea of sand to the crater's edge.</p>
+                        <a href="travel-now.html?destination=bromo" class="btn-tertiary">Book This Destination</a>
+                    </div>
+                </div>
+            
+                <!-- Maluku Section -->
+                <div class="destination-card" data-region="maluku">
+                    <div class="destination-image">
+                    <img src="images/destinations/banda-neira.jpeg" alt="Banda Neira">
+                    </div>
+                    <div class="destination-info">
+                        <h3>Banda Neira</h3>
+                        <p class="location"><i class="fas fa-map-marker-alt"></i>Maluku</p>
+                        <p class="description">Uncover the spice island charm of Banda Neira, rich in colonial history and surrounded by coral reefs. Visit 17th-century forts, hike volcanoes, and dive into pristine waters teeming with marine life.</p>
+                        <a href="travel-now.html?destination=banda-neira" class="btn-tertiary">Book This Destination</a>
+                    </div>
+                </div>
+
+                <!-- Papua Destinations -->
+                <div class="destination-card" data-region="papua">
+                    <div class="destination-image">
+                        <img src="images/destinations/raja-ampat.jpg" alt="Raja Ampat">
+                    </div>
+                    <div class="destination-info">
+                        <h3>Raja Ampat</h3>
+                        <p class="location"><i class="fas fa-map-marker-alt"></i>Southwest Papua</p>
+                        <p class="description">Dive into the crystal-clear waters of this paradise known for its biodiversity and stunning marine life. Explore pristine beaches, hidden lagoons, and vibrant coral reefs in this underwater wonderland.</p>
+                        <a href="travel-now.html?destination=raja-ampat" class="btn-tertiary">Book This Destination</a>
+                    </div>
+                </div>
+                
+                <!-- Sumatra Destinations -->
+                <div class="destination-card" data-region="sumatra">
+                    <div class="destination-image">
+                        <img src="images/destinations/lake-toba.jpg" alt="Lake Toba">
+                    </div>
+                    <div class="destination-info">
+                        <h3>Lake Toba</h3>
+                        <p class="location"><i class="fas fa-map-marker-alt"></i>North Sumatra</p>
+                        <p class="description">Explore the world's largest volcanic lake and the cultural heritage of the Batak people. Visit Samosir Island, relax in hot springs, and enjoy the cool highland climate of Sumatra.</p>
+                        <a href="travel-now.html?destination=lake-toba" class="btn-tertiary">Book This Destination</a>
+                    </div>
+                </div>
+
+                <div class="destination-card" data-region="sumatra">
+                    <div class="destination-image">
+                        <img src="images/destinations/belitung.jpeg" alt="Belitung">
+                    </div>
+                    <div class="destination-info">
+                        <h3>Belitung</h3>
+                        <p class="location"><i class="fas fa-map-marker-alt"></i>Bangka Belitung Islands</p>
+                        <p class="description">Explore the serene island of Belitung, famous for its white-sand beaches, granite boulders, and turquoise waters. Visit Lengkuas Island, swim in crystal-clear seas, and enjoy peaceful island life.</p>
+                        <a href="travel-now.html?destination=belitung" class="btn-tertiary">Book This Destination</a>
+                    </div>
+                </div>
+                
+                <!-- Sulawesi Destinations -->
+                <div class="destination-card" data-region="sulawesi">
+                    <div class="destination-image">
+                        <img src="images/destinations/toraja.jpg" alt="Tana Toraja">
+                    </div>
+                    <div class="destination-info">
+                        <h3>Tana Toraja</h3>
+                        <p class="location"><i class="fas fa-map-marker-alt"></i>South Sulawesi</p>
+                        <p class="description">Experience the unique funeral rituals and traditional architecture of the Toraja people. Marvel at boat-shaped houses, ancient burial sites, and lush mountain landscapes.</p>
+                        <a href="travel-now.html?destination=toraja" class="btn-tertiary">Book This Destination</a>
+                    </div>
+                </div>
+                
+                <div class="destination-card" data-region="sulawesi">
+                    <div class="destination-image">
+                        <img src="images/destinations/bunaken.jpg" alt="Bunaken">
+                    </div>
+                    <div class="destination-info">
+                        <h3>Bunaken</h3>
+                        <p class="location"><i class="fas fa-map-marker-alt"></i>North Sulawesi</p>
+                        <p class="description">Dive into one of the world's best marine parks with over 390 species of coral and thousands of fish species. Explore vertical walls, colorful reefs, and underwater caves.</p>
+                        <a href="travel-now.html?destination=bunaken" class="btn-tertiary">Book This Destination</a>
+                    </div>
+                </div>
+                
+                <!-- Kalimantan Destinations -->
+                <div class="destination-card" data-region="kalimantan">
+                    <div class="destination-image">
+                        <img src="images/destinations/tanjung-puting.jpeg" alt="Tanjung Puting">
+                    </div>
+                    <div class="destination-info">
+                        <h3>Tanjung Puting</h3>
+                        <p class="location"><i class="fas fa-map-marker-alt"></i>Central Kalimantan</p>
+                        <p class="description">Cruise through riverside forests to see orangutans in their natural habitat. Experience life on a traditional klotok boat and witness the diversity of Borneo's wildlife.</p>
+                        <a href="travel-now.html?destination=tanjung-puting" class="btn-tertiary">Book This Destination</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Travel Tips -->
+    <section class="travel-tips">
+        <div class="container">
+            <div class="section-title">
+                <h2>Travel Tips</h2>
+                <div class="underline"></div>
+            </div>
+            <div class="tips-grid">
+                <div class="tip-card">
+                    <div class="tip-icon">
+                        <i class="fas fa-sun"></i>
+                    </div>
+                    <h3>Best Time to Visit</h3>
+                    <p>Indonesia's dry season (May to September) offers the best weather for most destinations. However, specific regions may have different optimal visiting times.</p>
+                </div>
+                <div class="tip-card">
+                    <div class="tip-icon">
+                        <i class="fas fa-passport"></i>
+                    </div>
+                    <h3>Visa Information</h3>
+                    <p>Many countries are eligible for visa-free entry to Indonesia for up to 30 days. Check the latest requirements before your trip.</p>
+                </div>
+                <div class="tip-card">
+                    <div class="tip-icon">
+                        <i class="fas fa-language"></i>
+                    </div>
+                    <h3>Local Customs</h3>
+                    <p>Indonesia is diverse, with each region having unique customs. Dress modestly when visiting religious sites and always ask permission before taking photos of locals.</p>
+                </div>
+                <div class="tip-card">
+                    <div class="tip-icon">
+                        <i class="fas fa-utensils"></i>
+                    </div>
+                    <h3>Culinary Adventures</h3>
+                    <p>Don't miss trying local specialties at each destination. Indonesian cuisine varies greatly from region to region, offering a feast for food lovers.</p>
+                </div>
+            </div>
+            
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta-section">
+        <div class="container">
+            <div class="cta-content">
+                <h2>Ready to Experience Indonesia with Us?</h2>
+                <p>Let VSTravel create your perfect journey through Indonesia's most stunning landscapes and vibrant cultures.</p>
+                <div class="cta-buttons">
+                    <a href="travel-now.html" class="btn-primary">Plan Your Trip</a>
+                    <a href="contact.html" class="btn-secondary">Contact Our Team</a>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Footer Section -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-about">
+                    <h3>VS<span>Travel</span></h3>
+                    <p>Your trusted travel companion since 2020. We provide quality travel experiences with exceptional service.</p>
+                    <div class="social-links">
+                        <a href="https://www.facebook.com/"><i class="fab fa-facebook-f"></i></a>
+                        <a href="https://x.com/home"><i class="fab fa-twitter"></i></a>
+                        <a href="https://www.instagram.com/"><i class="fab fa-instagram"></i></a>
+                        <a href="https://www.linkedin.com/"><i class="fab fa-linkedin-in"></i></a>
+                    </div>
+                </div>
+                <div class="footer-links">
+                    <h3>Links</h3>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="destination.html">Destinations</a></li>
+                        <li><a href="contact.html">Contact Us</a></li>
+                        <li><a href="about.html">About Us</a></li>
+                        <li><a href="travel-now.html">Travel Now</a></li>
+                    </ul>
+                </div>
+                <div class="footer-contact">
+                    <h3>Contact Info</h3>
+                    <p><i class="fas fa-map-marker-alt"></i> Head Office: Jl. Sudirman No. 123, Jakarta</p>
+                    <p><i class="fas fa-phone"></i> +62 81234567890</p>
+                    <p><i class="fas fa-envelope"></i> info@vstravel.com</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 VSTravel. All Rights Reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
