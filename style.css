@@ -1,0 +1,109 @@
+body {
+    font-family: 'Segoe UI', Arial, sans-serif;
+    margin: 0;
+    background: #f4f4f4;
+    color: #222;
+}
+header {
+    background: #222;
+    color: #fff;
+    padding: 2rem 0 1rem 0;
+    text-align: center;
+}
+nav {
+    margin-top: 2rem;
+}
+nav a {
+    color: #fff;
+    margin: 0 1rem;
+    text-decoration: none;
+    font-weight: 500;
+}
+.container {
+    max-width: 900px;
+    margin: 2rem auto;
+    background: #fff;
+    padding: 2rem;
+    border-radius: 10px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.07);
+}
+.about, .projects, .contact {
+    margin-bottom: 2rem;
+}
+.about-content {
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+}
+
+.about-photo {
+    width: 200px;
+    height: 200px;
+    object-fit: cover;
+    border-radius: 10%;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.10);
+}
+.projects-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 1.5rem;
+}
+.project-card {
+    background: #f9f9f9;
+    padding: 1rem;
+    border-radius: 8px;
+    box-shadow: 0 1px 4px rgba(0,0,0,0.05);
+}
+.project-card h3 {
+    margin-top: 0;
+}
+footer {
+    text-align: center;
+    padding: 1rem 0;
+    background: #222;
+    color: #fff;
+    margin-top: 2rem;
+}
+.more-about {
+    margin-top: 2rem;
+    background: #f8f8f8;
+    padding: 1.5rem;
+    border-radius: 8px;
+    box-shadow: 0 1px 4px rgba(0,0,0,0.04);
+}
+.more-about h3 {
+    margin-top: 1.2rem;
+}
+.more-about ul {
+    list-style: none;
+    padding: 0;
+}
+.more-about ul li {
+    margin-bottom: 0.5rem;
+}
+.skills-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+}
+.skills-list li {
+    background: #e0e7ff;
+    color: #222;
+    padding: 0.4rem 1rem;
+    border-radius: 20px;
+    font-size: 0.98rem;
+}
+.learn-more {
+    display: inline-block;
+    margin-top: 1rem;
+    color: #3366cc;
+    text-decoration: underline;
+    cursor: pointer;
+}
+.project-details {
+    display: inline-block;
+    margin-top: 1rem;
+    color: #3366cc;
+    text-decoration: underline;
+    cursor: pointer;
+}
