@@ -85,13 +85,21 @@ footer {
     display: flex;
     flex-wrap: wrap;
     gap: 1rem;
+    list-style: none;
+    padding: 0;
+    margin: 0.5rem 0 0 0;
 }
 .skills-list li {
     background: #e0e7ff;
     color: #222;
-    padding: 0.4rem 1rem;
+    padding: 0.5rem 1.2rem;
     border-radius: 20px;
-    font-size: 0.98rem;
+    font-size: 1rem;
+    margin-bottom: 0.5rem;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.04);
+}
+.skills-list li:hover {
+    background: #c7d2fe;
 }
 .learn-more {
     display: inline-block;
