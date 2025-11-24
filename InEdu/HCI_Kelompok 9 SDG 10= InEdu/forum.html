@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Forum Belajar - InEdu</title>
+    <link rel="stylesheet" href="styles.css" />
+    <script src="script.js" defer></script>
+  </head>
+  <body>
+    <header>
+      <div class="navbar">
+        <div class="logo">InEdu</div>
+        <nav>
+          <ul>
+            <li><a href="index.html">Beranda</a></li>
+            <li><a href="materi.html">Materi</a></li>
+            <li><a href="aksesbilitas.html">Aksesbilitas</a></li>
+            <li><a href="forum.html" class="active">Forum</a></li>
+            <li><a href="about.html">Tentang Kami</a></li>
+            <li><a href="contact.html">Kontak</a></li>
+            <li><a href="login.html" class="btn-primary">Masuk / Daftar</a></li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+
+    <main style="padding: 2rem; max-width: 900px; margin: auto">
+      <h1 style="color: #1a237e; margin-bottom: 1rem">Forum Belajar</h1>
+      <div style="margin-bottom: 1.5rem">
+        <button
+          onclick="speakText(document.querySelector('main').innerText, localStorage.getItem('tts_lang') || 'id')"
+          class="btn-primary"
+          style="margin-right: 0.5rem"
+        >
+          🔊 Baca Forum
+        </button>
+        <button onclick="stopSpeak()" class="btn-secondary">⏹️ Hentikan</button>
+      </div>
+      <div
+        id="createForumContainer"
+        style="
+          display: none;
+          margin-bottom: 2rem;
+          background: #f9f9f9;
+          padding: 1rem;
+          border-radius: 8px;
+        "
+      >
+        <h2 style="color: #1a237e; font-size: 1.2rem; margin-bottom: 0.5rem">
+          Buat Forum Baru
+        </h2>
+        <form id="createForumForm">
+          <input
+            type="text"
+            id="forumTitle"
+            placeholder="Judul Forum"
+            required
+            style="
+              width: 100%;
+              padding: 0.5rem;
+              margin-bottom: 0.5rem;
+              border-radius: 4px;
+              border: 1px solid #ccc;
+            "
+          />
+          <textarea
+            id="forumDesc"
+            placeholder="Deskripsi singkat"
+            required
+            style="
+              width: 100%;
+              padding: 0.5rem;
+              margin-bottom: 0.5rem;
+              border-radius: 4px;
+              border: 1px solid #ccc;
+            "
+          ></textarea>
+          <button type="submit" class="btn-primary">Buat Forum</button>
+        </form>
+      </div>
+      <p style="color: #555; font-size: 1.1rem; margin-bottom: 1rem">
+        Tempat diskusi antar pengguna, tanya jawab antar pelajar dan relawan
+        pengajar. Fitur moderasi akan ditambahkan untuk keamanan.
+      </p>
+      <section id="forumListSection">
+        <article
+          style="
+            background-color: #ffffff;
+            padding: 1rem;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            margin-bottom: 1rem;
+            cursor: pointer;
+          "
+          onclick="window.location.href='forum-detail.html'"
+        >
+          <h2 style="color: #1a237e">Topik Diskusi 1</h2>
+          <p style="color: #555">Diskusi tentang materi matematika dasar.</p>
+          <a
+            href="forum-detail.html"
+            style="color: #1a73e8; font-weight: 600; text-decoration: none"
+            >Lihat Diskusi →</a
+          >
+        </article>
+        <article
+          style="
+            background-color: #ffffff;
+            padding: 1rem;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            margin-bottom: 1rem;
+          "
+        >
+          <h2 style="color: #1a237e">Topik Diskusi 2</h2>
+          <p style="color: #555">Tanya jawab tentang Materi Fisika Dasar.</p>
+          <a
+            href="forum-detail-2.html"
+            style="color: #1a73e8; font-weight: 600; text-decoration: none"
+            >Lihat Diskusi →</a
+          >
+        </article>
+      </section>
+    </main>
+
+    <footer
+      style="
+        text-align: center;
+        padding: 1rem;
+        background-color: #e8f0fe;
+        color: #333;
+      "
+    >
+      <p>&copy; 2025 InEdu. All rights reserved.</p>
+    </footer>
+  </body>
+</html>

@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>InEdu – Inklusif Edukasi untuk Semua</title>
+  <link rel="stylesheet" href="styles.css" />
+  <script src="script.js" defer></script>
+</head>
+<body>
+  <svg xmlns="http://www.w3.org/2000/svg" style="position:absolute; width:0; height:0" aria-hidden="true" focusable="false">
+    <defs>
+      <filter id="protanopia" color-interpolation-filters="sRGB">
+        <feColorMatrix type="matrix" values="0.567,0.433,0,0,0 0.558,0.442,0,0,0 0,0.242,0.758,0,0 0,0,0,1,0"/>
+      </filter>
+      <filter id="deuteranopia" color-interpolation-filters="sRGB">
+        <feColorMatrix type="matrix" values="0.625,0.375,0,0,0 0.7,0.3,0,0,0 0,0.3,0.7,0,0 0,0,0,1,0"/>
+      </filter>
+      <filter id="tritanopia" color-interpolation-filters="sRGB">
+        <feColorMatrix type="matrix" values="0.95,0.05,0,0,0 0,0.433,0.567,0,0 0,0.475,0.525,0,0 0,0,0,1,0"/>
+      </filter>
+    </defs>
+  </svg>
+  <header>
+    <div class="navbar">
+      <div class="logo">InEdu</div>
+      <div id="google_translate_element" style="margin-left: auto; margin-right: 1rem;"></div>
+      <nav>
+        <ul>
+          <li><a href="index.html" class="active">Beranda</a></li>
+          <li><a href="materi.html">Materi</a></li>
+          <li><a href="aksesbilitas.html">Aksesbilitas</a></li>
+          <li><a href="forum.html">Forum</a></li>
+          <li><a href="about.html">Tentang Kami</a></li>
+          <li><a href="contact.html">Kontak</a></li>
+          <li><a href="login.html" class="btn-primary">Masuk / Daftar</a></li>
+        </ul>
+      </nav>
+      <button onclick="speakText(document.getElementById('mainContent').innerText, localStorage.getItem('tts_lang') || 'id')" style="background-color: #1a73e8; color: white; border: none; border-radius: 4px; padding: 0.4rem 0.8rem; cursor: pointer;">🔊 Baca Halaman</button>
+      <button onclick="stopSpeak()" style="background-color: #e53935; color: white; border: none; border-radius: 4px; padding: 0.4rem 0.8rem; cursor: pointer; margin-left: 0.5rem;">⏹️ Hentikan</button>
+    </div>
+  </header>
+
+  <main id="mainContent">
+    <div id="colorBlindWrapper">
+    <section class="hero" style="padding: 4rem 2rem; background-color: #e8f0fe; display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between;">
+      <div class="hero-text" style="max-width: 600px;">
+        <h1 style="font-size: 2.8rem; color: #1a237e; margin-bottom: 1rem;">Inklusif Edukasi untuk Semua</h1>
+        <p style="font-size: 1.2rem; margin-bottom: 1.5rem;">
+          Platform edukasi gratis yang inklusif dan ramah akses untuk semua tanpa diskriminasi, mendukung SDG 10: Mengurangi Ketimpangan.
+        </p>
+        <div class="hero-buttons" style="margin-bottom: 1.5rem;">
+          <a href="materi.html" class="btn-primary" style="margin-right: 1rem;">Akses Materi</a>
+          <a href="about.html" class="btn-secondary">Tentang SDG 10</a>
+        </div>
+        <div class="tags" style="font-size: 0.9rem;">
+          <span style="background-color: #dfe3eb; color: #333; padding: 0.3rem 0.6rem; border-radius: 4px; margin-right: 0.5rem;">Aksesibilitas</span>
+          <span style="background-color: #dfe3eb; color: #333; padding: 0.3rem 0.6rem; border-radius: 4px; margin-right: 0.5rem;">Multi-bahasa</span>
+          <span style="background-color: #dfe3eb; color: #333; padding: 0.3rem 0.6rem; border-radius: 4px;">Forum</span>
+        </div>
+      </div>
+      <div class="hero-image" style="max-width: 350px; margin-top: 1rem;">
+        <img src="pngtest1.png" alt="InEdu Illustration" style="width: 100%; border-radius: 8px;" />
+      </div>
+    </section>
+
+    <section class="materi" style="padding: 2rem;">
+      <h2 style="color: #1a237e; margin-bottom: 0.5rem;">Materi Belajar Gratis</h2>
+      <p style="color: #555; margin-bottom: 1rem;">
+        Pilih materi sesuai jenjang & minat: SD, SMP, SMA. Semua materi tersedia dalam bentuk artikel, PDF, & video.
+      </p>
+      <div class="materi-buttons" style="margin-bottom: 1rem;">
+        <button style="margin: 0.2rem; padding: 0.5rem 1rem; border: none; background-color: #1a73e8; color: white; border-radius: 4px; cursor: pointer;">SD</button>
+        <button style="margin: 0.2rem; padding: 0.5rem 1rem; border: none; background-color: #1a73e8; color: white; border-radius: 4px; cursor: pointer;">SMP</button>
+        <button style="margin: 0.2rem; padding: 0.5rem 1rem; border: none; background-color: #1a73e8; color: white; border-radius: 4px; cursor: pointer;">SMA</button>
+        <button style="margin: 0.2rem; padding: 0.5rem 1rem; border: none; background-color: #1a73e8; color: white; border-radius: 4px; cursor: pointer;">Lainnya</button>
+      </div>
+      <div class="materi-cards" style="display: flex; gap: 1rem; flex-wrap: wrap;">
+        <div class="card" style="background-color: #ffffff; padding: 1rem; border-radius: 8px; flex: 1 1 250px; box-shadow: 0 2px 4px rgba(0,0,0,0.1);">
+          <h3 style="color: #1a237e;">Sains</h3>
+          <p style="color: #555;">
+            Eksperimen, penjelasan konsep, dan video interaktif sains untuk semua tingkat.
+          </p>
+          <div class="tags" style="margin-bottom: 0.5rem;">
+            <span style="background-color: #e8f0fe; color: #1a237e; padding: 0.2rem 0.5rem; border-radius: 4px; margin-right: 0.5rem;">PDF</span>
+            <span style="background-color: #e8f0fe; color: #1a237e; padding: 0.2rem 0.5rem; border-radius: 4px; margin-right: 0.5rem;">Video</span>
+            <span style="background-color: #e8f0fe; color: #1a237e; padding: 0.2rem 0.5rem; border-radius: 4px;">Artikel</span>
+          </div>
+          <a href="materi.html" style="color: #1a73e8; text-decoration: none; font-weight: 600;">Lihat Materi →</a>
+        </div>
+        <div class="card" style="background-color: #ffffff; padding: 1rem; border-radius: 8px; flex: 1 1 250px; box-shadow: 0 2px 4px rgba(0,0,0,0.1);">
+          <h3 style="color: #1a237e;">Matematika</h3>
+          <p style="color: #555;">
+            Latihan soal, video penjelasan, dan tips praktis untuk matematika dasar hingga lanjut.
+          </p>
+          <div class="tags" style="margin-bottom: 0.5rem;">
+            <span style="background-color: #e8f0fe; color: #1a237e; padding: 0.2rem 0.5rem; border-radius: 4px; margin-right: 0.5rem;">PDF</span>
+            <span style="background-color: #e8f0fe; color: #1a237e; padding: 0.2rem 0.5rem; border-radius: 4px; margin-right: 0.5rem;">Video</span>
+            <span style="background-color: #e8f0fe; color: #1a237e; padding: 0.2rem 0.5rem; border-radius: 4px;">Artikel</span>
+          </div>
+          <a href="materi.html" style="color: #1a73e8; text-decoration: none; font-weight: 600;">Lihat Materi →</a>
+        </div>
+        <div class="card" style="background-color: #ffffff; padding: 1rem; border-radius: 8px; flex: 1 1 250px; box-shadow: 0 2px 4px rgba(0,0,0,0.1);">
+          <h3 style="color: #1a237e;">Bahasa</h3>
+          <p style="color: #555;">
+            Materi bahasa Indonesia, Inggris, daerah & latihan komunikasi untuk berbagai tingkat.
+          </p>
+          <div class="tags" style="margin-bottom: 0.5rem;">
+            <span style="background-color: #e8f0fe; color: #1a237e; padding: 0.2rem 0.5rem; border-radius: 4px; margin-right: 0.5rem;">PDF</span>
+            <span style="background-color: #e8f0fe; color: #1a237e; padding: 0.2rem 0.5rem; border-radius: 4px; margin-right: 0.5rem;">Video</span>
+            <span style="background-color: #e8f0fe; color: #1a237e; padding: 0.2rem 0.5rem; border-radius: 4px;">Artikel</span>
+          </div>
+          <a href="materi.html" style="color: #1a73e8; text-decoration: none; font-weight: 600;">Lihat Materi →</a>
+        </div>
+      </div>
+      <a href="materi.html" class="btn-link" style="color: #1a73e8; font-weight: 600;">Lihat Semua Materi →</a>
+    </section>
+
+    <section class="accessibility" style="background-color: #f0f4ff; padding: 2rem; border-radius: 8px; margin: 2rem;">
+      <h2 style="color: #1a237e; margin-bottom: 1rem;">Fitur Aksesibilitas</h2>
+      <a href="aksesbilitas.html" class="btn-secondary" style="margin-bottom: 1rem; display: inline-block;">🔧 Lihat & Atur Fitur Aksesibilitas</a>
+      <ul style="list-style: none; padding-left: 0; color: #555; font-size: 1.1rem;">
+        <li>✔️ Teks ke Suara (Text-to-Speech)</li>
+        <li>✔️ Subtitle dan Transkrip Video</li>
+        <li>✔️ Mode Kontras Tinggi</li>
+        <li>✔️ Ukuran Teks Dapat Disesuaikan</li>
+        <li>✔️ Navigasi Keyboard-Friendly</li>
+      </ul>
+    </section>
+
+    <section class="multi-language" style="padding: 2rem;">
+      <h2 style="color: #1a237e; margin-bottom: 1rem;">Multi-Bahasa</h2>
+      <p style="color: #555; font-size: 1.1rem;">
+        Mendukung Bahasa Indonesia dan bahasa lokal seperti Jawa, Sunda, Papua, dan lainnya. Fitur terjemahan awal menggunakan Google Translate API.
+      </p>
+    </section>
+
+    <section class="forum-preview" style="background-color: #f0f4ff; padding: 2rem; border-radius: 8px; margin: 2rem;">
+      <h2 style="color: #1a237e; margin-bottom: 1rem;">Forum Belajar</h2>
+      <p style="color: #555; font-size: 1.1rem;">
+        Diskusi antar pengguna, tanya jawab antar pelajar dan relawan pengajar. Fitur moderasi untuk keamanan.
+      </p>
+      <a href="forum.html" class="btn-primary" style="margin-top: 1rem; display: inline-block;">Masuk Forum</a>
+    </section>
+
+    <section class="certificate" style="padding: 2rem;">
+      <h2 style="color: #1a237e; margin-bottom: 1rem;">Sertifikat Gratis</h2>
+      <p style="color: #555; font-size: 1.1rem;">
+        Sertifikat penyelesaian materi sebagai motivasi dan validasi belajar mandiri.
+      </p>
+    </section>
+
+    <section class="user-profile" style="background-color: #f0f4ff; padding: 2rem; border-radius: 8px; margin: 2rem;">
+      <h2 style="color: #1a237e; margin-bottom: 1rem;">Profil Pengguna</h2>
+      <p style="color: #555; font-size: 1.1rem;">
+        Daftar materi yang sudah dipelajari dan progress tracking sederhana.
+      </p>
+      <a href="profile.html" class="btn-primary" style="margin-top: 1rem; display: inline-block;">Lihat Profil</a>
+    </section>
+  </main>
+
+  <footer style="text-align: center; padding: 1rem; background-color: #e8f0fe; color: #333;">
+    <p>&copy; 2025 InEdu. All rights reserved.</p>
+  </footer>
+</body>
+</html>

@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Materi Belajar - InEdu</title>
+  <link rel="stylesheet" href="styles.css" />
+  <script src="script.js" defer></script>
+</head>
+<body>
+  <header>
+    <div class="navbar">
+      <div class="logo">InEdu</div>
+      <nav>
+        <ul>
+          <li><a href="index.html">Beranda</a></li>
+          <li><a href="materi.html" class="active">Materi</a></li>
+          <li><a href="aksesbilitas.html">Aksesbilitas</a></li>
+          <li><a href="forum.html">Forum</a></li>
+          <li><a href="about.html">Tentang Kami</a></li>
+          <li><a href="contact.html">Kontak</a></li>
+          <li><a href="login.html" class="btn-primary">Masuk / Daftar</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main style="padding: 2rem;">
+    <div id="colorBlindWrapper">
+    <h1 style="color: #1a237e; margin-bottom: 1rem;">Materi Belajar</h1>
+
+    <section class="filters" style="margin-bottom: 1.5rem;">
+      <label for="levelFilter" style="font-weight: 600; color: #1a237e;">Filter Jenjang:</label>
+      <select id="levelFilter" style="margin-left: 0.5rem; padding: 0.3rem 0.5rem; border-radius: 4px; border: 1px solid #ccc;">
+        <option value="all">Semua</option>
+        <option value="sd">SD</option>
+        <option value="smp">SMP</option>
+        <option value="sma">SMA</option>
+      </select>
+    </section>
+
+    <section class="materi-list" style="display: flex; flex-wrap: wrap; gap: 1rem;">
+      <article class="materi-item card" data-level="sd" style="background-color: #ffffff; padding: 1rem; border-radius: 8px; flex: 1 1 300px; box-shadow: 0 2px 4px rgba(0,0,0,0.1); cursor: pointer;">
+        <h2 style="color: #1a237e;"><a href="sd-matematika-dasar.html" style="text-decoration: none; color: inherit;">Matematika Dasar (SD)</a></h2>
+        <p style="color: #555;">Materi lengkap untuk tingkat SD meliputi berbagai mata pelajaran dasar.</p>
+      </article>
+      <article class="materi-item card" data-level="smp" style="background-color: #ffffff; padding: 1rem; border-radius: 8px; flex: 1 1 300px; box-shadow: 0 2px 4px rgba(0,0,0,0.1); cursor: pointer;">
+        <h2 style="color: #1a237e;"><a href="smp-materi.html" style="text-decoration: none; color: inherit;">Sains Interaktif (SMP)</a></h2>
+        <p style="color: #555;">Eksperimen dan video interaktif untuk siswa SMP.</p>
+      </article>
+      <article class="materi-item card" data-level="smp" style="background-color: #ffffff; padding: 1rem; border-radius: 8px; flex: 1 1 300px; box-shadow: 0 2px 4px rgba(0,0,0,0.1); cursor: pointer;">
+        <h2 style="color: #1a237e;"><a href="smp-bahasa.html" style="text-decoration: none; color: inherit;">Bahasa Indonesia Dasar (SMP)</a></h2>
+        <p style="color: #555;">Materi bahasa Indonesia dasar untuk siswa SMP.</p>
+      </article>
+      <article class="materi-item card" data-level="sma" style="background-color: #ffffff; padding: 1rem; border-radius: 8px; flex: 1 1 300px; box-shadow: 0 2px 4px rgba(0,0,0,0.1); cursor: pointer;">
+        <h2 style="color: #1a237e;"><a href="sma-materi.html" style="text-decoration: none; color: inherit;">Matematika Lanjutan (SMA)</a></h2>
+        <p style="color: #555;">Materi matematika lanjutan untuk siswa SMA.</p>
+      </article>
+    </section>
+
+    <section id="materiDetail" style="margin-top: 2rem; background-color: #f9f9f9; padding: 1rem; border-radius: 8px; display: none;">
+      <h2 id="detailTitle" style="color: #1a237e;"></h2>
+      <p id="detailContent" style="color: #555;"></p>
+      <button onclick="speakText(document.getElementById('detailContent').innerText, localStorage.getItem('tts_lang') || 'id')" class="btn-primary" style="margin-top: 1rem;">🔊 Baca Materi</button>
+      <button onclick="stopSpeak()" class="btn-secondary" style="margin-top: 1rem; margin-left: 0.5rem;">⏹️ Hentikan</button>
+    </section>
+  </main>
+
+  <footer style="text-align: center; padding: 1rem; background-color: #e8f0fe; color: #333;">
+    <p>&copy; 2025 InEdu. All rights reserved.</p>
+  </footer>
+
+  <script>
+    const levelFilter = document.getElementById('levelFilter');
+    const materiItems = document.querySelectorAll('.materi-item');
+
+    levelFilter.addEventListener('change', () => {
+      const selectedLevel = levelFilter.value;
+      materiItems.forEach(item => {
+        if (selectedLevel === 'all' || item.dataset.level === selectedLevel) {
+          item.style.display = 'block';
+        } else {
+          item.style.display = 'none';
+        }
+      });
+    });
+  </script>
+</body>
+</html>

@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Detail Diskusi Forum - InEdu</title>
+  <link rel="stylesheet" href="styles.css" />
+  <script src="script.js" defer></script>
+</head>
+<body>
+  <header>
+    <div class="navbar">
+      <div class="logo">InEdu</div>
+      <nav>
+        <ul>
+          <li><a href="index.html">Beranda</a></li>
+          <li><a href="materi.html">Materi</a></li>
+          <li><a href="aksesbilitas.html">Aksesbilitas</a></li>
+          <li><a href="forum.html" class="active">Forum</a></li>
+          <li><a href="about.html">Tentang Kami</a></li>
+          <li><a href="contact.html">Kontak</a></li>
+          <li><a href="login.html" class="btn-primary">Masuk / Daftar</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main style="padding: 2rem; max-width: 900px; margin: auto;">
+    <div id="colorBlindWrapper">
+    <h1 style="color: #1a237e; margin-bottom: 1rem;">Diskusi: Materi Matematika Dasar</h1>
+    <section style="background-color: #ffffff; padding: 1rem; border-radius: 8px; box-shadow: 0 2px 4px rgba(0,0,0,0.1); margin-bottom: 1rem;">
+      <p style="color: #555; font-size: 1.1rem;">
+        Diskusi ini membahas soal dan konsep dasar matematika tingkat SD. Silakan bertanya dan berbagi tips belajar.
+      </p>
+      <button onclick="speakText(document.querySelector('main').innerText, localStorage.getItem('tts_lang') || 'id')" class="btn-primary" style="margin-top: 1rem;">🔊 Baca Diskusi</button>
+      <button onclick="stopSpeak()" class="btn-secondary" style="margin-top: 1rem; margin-left: 0.5rem;">⏹️ Hentikan</button>
+    </section>
+
+    <section id="repliesSection">
+      <article style="background-color: #f9f9f9; padding: 1rem; border-radius: 8px; margin-bottom: 1rem;">
+        <h3 style="color: #1a237e;">User Satu</h3>
+        <p style="color: #555;">Bagaimana cara memahami pecahan dengan mudah?</p>
+      </article>
+      <article style="background-color: #f9f9f9; padding: 1rem; border-radius: 8px; margin-bottom: 1rem;">
+        <h3 style="color: #1a237e;">User Dua</h3>
+        <p style="color: #555;">Saya sarankan menggunakan gambar dan benda nyata untuk visualisasi.</p>
+      </article>
+    </section>
+
+    <form id="replyForm" onsubmit="return submitReply(event)" style="margin-top: 2rem; display: flex; flex-direction: column; gap: 1rem;">
+      <label for="replyText" style="font-weight: 600; color: #1a237e;">Tulis Balasan:</label>
+      <textarea id="replyText" rows="4" required style="padding: 0.5rem; border-radius: 4px; border: 1px solid #ccc;"></textarea>
+      <button type="submit" class="btn-primary" style="padding: 0.6rem; border: none; border-radius: 4px; cursor: pointer;">Kirim Balasan</button>
+    </form>
+    <script>
+      function submitReply(event) {
+        event.preventDefault();
+        const replyText = document.getElementById('replyText').value.trim();
+        if (!replyText) return false;
+        const repliesSection = document.getElementById('repliesSection');
+        const newReply = document.createElement('article');
+        newReply.style.backgroundColor = '#f9f9f9';
+        newReply.style.padding = '1rem';
+        newReply.style.borderRadius = '8px';
+        newReply.style.marginBottom = '1rem';
+        newReply.innerHTML = '<h3 style="color: #1a237e;">Anda</h3><p style="color: #555;">' + replyText + '</p>';
+        repliesSection.appendChild(newReply);
+        document.getElementById('replyText').value = '';
+        return false;
+      }
+    </script>
+  </main>
+
+  <footer style="text-align: center; padding: 1rem; background-color: #e8f0fe; color: #333;">
+    <p>&copy; 2025 InEdu. All rights reserved.</p>
+  </footer>
+</body>
+</html>

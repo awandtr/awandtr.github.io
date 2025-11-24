@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Sertifikat - InEdu</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <header>
+      <div class="navbar">
+        <div class="logo">InEdu</div>
+        <nav>
+          <ul>
+            <li><a href="index.html">Beranda</a></li>
+            <li><a href="materi.html">Materi</a></li>
+            <li><a href="aksesbilitas.html">Aksesbilitas</a></li>
+            <li><a href="forum.html">Forum</a></li>
+            <li><a href="about.html">Tentang Kami</a></li>
+            <li><a href="contact.html">Kontak</a></li>
+            <li><a href="login.html" class="btn-primary">Masuk / Daftar</a></li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+
+    <main style="padding: 2rem; max-width: 700px; margin: auto">
+      <h1 style="color: #1a237e; margin-bottom: 1rem">
+        Sertifikat Penyelesaian
+      </h1>
+      <div
+        id="materiTitle"
+        style="font-weight: bold; color: #1a237e; margin-bottom: 1rem"
+      ></div>
+      <section id="certificateSection" class="card">
+        <p style="font-size: 1.1rem">
+          Sertifikat ini diberikan sebagai tanda penyelesaian materi
+          pembelajaran di InEdu. Fitur ini akan dikembangkan lebih lanjut untuk
+          validasi belajar mandiri.
+        </p>
+        <div id="certificateList"></div>
+      </section>
+    </main>
+    <footer>
+      <p>&copy; 2025 InEdu. All rights reserved.</p>
+    </footer>
+    <script src="script.js"></script>
+    <script>
+      // Render sertifikat dummy dari localStorage/user
+      document.addEventListener("DOMContentLoaded", function () {
+        const user = JSON.parse(localStorage.getItem("loggedInUser") || "{}");
+        // Tampilkan nama materi jika ada parameter
+        const params = new URLSearchParams(window.location.search);
+        const materi = params.get("materi");
+        if (materi) {
+          document.getElementById("materiTitle").textContent =
+            "Materi: " + materi;
+        }
+        const list = document.getElementById("certificateList");
+        let found = false;
+        if (user.certificates && user.certificates.length > 0) {
+          user.certificates.forEach((cert, idx) => {
+            if (!materi || cert.title === materi) {
+              found = true;
+              const certDiv = document.createElement("div");
+              certDiv.style.marginBottom = "1.5rem";
+              certDiv.style.padding = "1rem";
+              certDiv.style.border = "1px solid #eee";
+              certDiv.style.borderRadius = "8px";
+              certDiv.style.background = "#f9f9f9";
+              certDiv.innerHTML =
+                `<strong>${cert.title}</strong><br>Tanggal: ${cert.date}<br>` +
+                `<button onclick="downloadCertificate('${cert.title}','${user.name}','${cert.date}')" class='btn-primary' style='margin-top:0.5rem;'>Download PDF</button>`;
+              list.appendChild(certDiv);
+            }
+          });
+        }
+        // Jika tidak ditemukan di certificates, tapi ada param materi, tampilkan sertifikat dummy
+        if (!found && materi && user.name) {
+          const today = new Date();
+          const tgl =
+            today.getFullYear() +
+            "-" +
+            String(today.getMonth() + 1).padStart(2, "0") +
+            "-" +
+            String(today.getDate()).padStart(2, "0");
+          const certDiv = document.createElement("div");
+          certDiv.style.marginBottom = "1.5rem";
+          certDiv.style.padding = "1rem";
+          certDiv.style.border = "1px solid #eee";
+          certDiv.style.borderRadius = "8px";
+          certDiv.style.background = "#f9f9f9";
+          certDiv.innerHTML =
+            `<strong>${materi}</strong><br>Tanggal: ${tgl}<br>` +
+            `<button onclick="downloadCertificate('${materi}','${user.name}','${tgl}')" class='btn-primary' style='margin-top:0.5rem;'>Download PDF</button>`;
+          list.appendChild(certDiv);
+        }
+        if (!found && (!materi || !user.name)) {
+          list.innerHTML = "<em>Belum ada sertifikat.</em>";
+        }
+      });
+      // Tidak ada deklarasi function downloadCertificate di sini, gunakan dari script.js
+    </script>
+  </body>
+</html>

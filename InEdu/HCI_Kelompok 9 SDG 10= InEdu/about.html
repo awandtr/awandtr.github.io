@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Tentang Kami - InEdu</title>
+    <link rel="stylesheet" href="styles.css" />
+    <script src="script.js" defer></script>
+  </head>
+  <body>
+    <header>
+      <div class="navbar">
+        <div class="logo">InEdu</div>
+        <nav>
+          <ul>
+            <li><a href="index.html">Beranda</a></li>
+            <li><a href="materi.html">Materi</a></li>
+            <li><a href="aksesbilitas.html">Aksesbilitas</a></li>
+            <li><a href="forum.html">Forum</a></li>
+            <li><a href="about.html" class="active">Tentang Kami</a></li>
+            <li><a href="contact.html">Kontak</a></li>
+            <li><a href="login.html" class="btn-primary">Masuk / Daftar</a></li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+
+    <main style="padding: 2rem; max-width: 900px; margin: auto">
+      <h1 style="color: #1a237e; margin-bottom: 1rem">Tentang Kami</h1>
+
+      <section style="margin-bottom: 2rem">
+        <h2 style="color: #1a237e">Misi Kami</h2>
+        <p style="color: #555; font-size: 1.1rem; text-align: justify">
+          InEdu berkomitmen untuk menyediakan akses pendidikan yang gratis,
+          inklusif, dan berkualitas tinggi bagi semua lapisan masyarakat. Kami
+          fokus pada pemberdayaan penyandang disabilitas, masyarakat kurang
+          mampu, dan komunitas minoritas agar mereka dapat memperoleh kesempatan
+          belajar yang setara dan merata.
+        </p>
+        <p style="color: #555; font-size: 1.1rem; text-align: justify">
+          Melalui teknologi inovatif dan pendekatan pembelajaran yang adaptif,
+          kami berusaha menghilangkan hambatan fisik, sosial, dan ekonomi yang
+          selama ini menghalangi akses pendidikan.
+        </p>
+      </section>
+
+      <section style="margin-bottom: 2rem">
+        <h2 style="color: #1a237e">Hubungan dengan SDG 10</h2>
+        <img
+          src="E-WEB-Goal-10-1024x1024-1.png"
+          alt="SDG 10 - Reduced Inequalities"
+          style="max-width: 200px; display: block; margin-bottom: 1rem"
+        />
+        <p style="color: #555; font-size: 1.1rem; text-align: justify">
+          Tujuan Pembangunan Berkelanjutan (SDG) nomor 10 berfokus pada
+          pengurangan kesenjangan di berbagai aspek kehidupan. Tujuan utamanya
+          adalah mengurangi ketimpangan pendapatan dan diskriminasi berdasarkan
+          usia, jenis kelamin, disabilitas, ras, etnis, agama, atau status
+          ekonomi, baik di tingkat nasional maupun internasional. InEdu
+          berkomitmen mendukung SDG ini dengan menyediakan akses pendidikan yang
+          inklusif dan merata bagi semua kalangan.
+        </p>
+        <ul style="color: #555; font-size: 1.1rem">
+          <li>Mengurangi kesenjangan akses pendidikan antara kota dan desa.</li>
+          <li>
+            Mendukung penyandang disabilitas dalam belajar dengan teknologi
+            bantu.
+          </li>
+          <li>Menghapus hambatan bahasa dengan fitur multi-bahasa.</li>
+          <li>Meningkatkan partisipasi sosial lewat forum terbuka.</li>
+        </ul>
+      </section>
+
+      <section style="margin-bottom: 2rem">
+        <h2 style="color: #1a237e">Dampak Sosial</h2>
+        <p style="color: #555; font-size: 1.1rem; text-align: justify">
+          Dengan menyediakan platform edukasi inklusif, kami berharap dapat
+          mengurangi ketimpangan sosial dan meningkatkan kualitas pendidikan di
+          seluruh Indonesia. Kami percaya bahwa pendidikan adalah kunci untuk
+          menciptakan masyarakat yang lebih adil dan berkelanjutan.
+        </p>
+        <p style="color: #555; font-size: 1.1rem; text-align: justify">
+          Melalui kolaborasi dengan berbagai pemangku kepentingan, kami terus
+          berupaya memperluas jangkauan dan dampak positif dari InEdu.
+        </p>
+      </section>
+
+      <button
+        onclick="speakText(document.querySelector('main').innerText, localStorage.getItem('tts_lang') || 'id')"
+        class="btn-primary"
+        style="margin-top: 1rem"
+      >
+        🔊 Baca Halaman
+      </button>
+      <button
+        onclick="stopSpeak()"
+        class="btn-secondary"
+        style="margin-bottom: 1rem; margin-left: 0.5rem"
+      >
+        ⏹️ Hentikan
+      </button>
+    </main>
+
+    <footer
+      style="
+        text-align: center;
+        padding: 1rem;
+        background-color: #e8f0fe;
+        color: #333;
+      "
+    >
+      <p>&copy; 2025 InEdu. All rights reserved.</p>
+    </footer>
+  </body>
+</html>

@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Aksesbilitas - InEdu</title>
+    <link rel="stylesheet" href="styles.css" />
+    <script src="script.js" defer></script>
+  </head>
+  <body>
+    <header>
+      <div class="navbar">
+        <div class="logo">InEdu</div>
+        <nav>
+          <ul>
+            <li><a href="index.html">Beranda</a></li>
+            <li><a href="materi.html">Materi</a></li>
+            <li><a href="aksesbilitas.html" class="active">Aksesbilitas</a></li>
+            <li><a href="forum.html">Forum</a></li>
+            <li><a href="about.html">Tentang Kami</a></li>
+            <li><a href="contact.html">Kontak</a></li>
+            <li><a href="login.html" class="btn-primary">Masuk / Daftar</a></li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+
+    <div id="colorBlindWrapper">
+      <main style="padding: 2rem; max-width: 900px; margin: auto">
+        <h1 style="color: #1a237e; margin-bottom: 1rem">
+          Pengaturan Aksesbilitas
+        </h1>
+
+        <section style="margin-bottom: 2rem">
+          <label for="fontSize" style="font-weight: 600; color: #1a237e"
+            >Ukuran Font:</label
+          >
+          <select
+            id="fontSize"
+            onchange="changeFontSize()"
+            style="
+              margin-left: 0.5rem;
+              padding: 0.3rem 0.5rem;
+              border-radius: 4px;
+              border: 1px solid #ccc;
+            "
+          >
+            <option value="16">Standar</option>
+            <option value="18">Sedang</option>
+            <option value="20">Besar</option>
+            <option value="22">Sangat Besar</option>
+          </select>
+        </section>
+
+        <section style="margin-bottom: 2rem">
+          <label for="colorTheme" style="font-weight: 600; color: #1a237e"
+            >Tema Warna:</label
+          >
+          <select
+            id="colorTheme"
+            onchange="changeColorTheme()"
+            style="
+              margin-left: 0.5rem;
+              padding: 0.3rem 0.5rem;
+              border-radius: 4px;
+              border: 1px solid #ccc;
+            "
+          >
+            <option value="light">Terang</option>
+            <option value="dark">Gelap</option>
+            <option value="sepia">Sepia</option>
+          </select>
+        </section>
+
+        <section style="margin-bottom: 2rem">
+          <label for="ttsLanguage" style="font-weight: 600; color: #1a237e"
+            >Bahasa TTS:</label
+          >
+          <select
+            id="ttsLanguage"
+            style="
+              margin-left: 0.5rem;
+              padding: 0.3rem 0.5rem;
+              border-radius: 4px;
+              border: 1px solid #ccc;
+            "
+          >
+            <option value="id">Bahasa Indonesia</option>
+            <option value="en">English</option>
+          </select>
+          <button
+            onclick="speakTextPanduanAkses()"
+            class="btn-primary"
+            style="margin-left: 1rem"
+          >
+            🔊 Panduan Aksesibilitas
+          </button>
+        </section>
+
+        <section style="margin-bottom: 2rem">
+          <label for="colorBlindMode" style="font-weight: 600; color: #1a237e"
+            >Mode Buta Warna:</label
+          >
+          <select
+            id="colorBlindMode"
+            onchange="changeColorBlindMode()"
+            style="
+              margin-left: 0.5rem;
+              padding: 0.3rem 0.5rem;
+              border-radius: 4px;
+              border: 1px solid #ccc;
+            "
+          >
+            <option value="normal">Normal</option>
+            <option value="protanopia">Protanopia</option>
+            <option value="deuteranopia">Deuteranopia</option>
+            <option value="tritanopia">Tritanopia</option>
+            <option value="gray">Abu-abu (Umum)</option>
+          </select>
+        </section>
+
+        <section style="margin-bottom: 2rem">
+          <h2 style="color: #1a237e; margin-bottom: 0.5rem">Fitur Tambahan</h2>
+          <ul
+            style="
+              color: #555;
+              font-size: 1.1rem;
+              list-style: none;
+              padding-left: 0;
+            "
+          >
+            <li>
+              ✔️ Teks ke Suara (Text-to-Speech) untuk membaca materi secara
+              otomatis.
+            </li>
+            <li>✔️ Subtitle dan Transkrip Video untuk membantu pemahaman.</li>
+            <li>
+              ✔️ Mode Kontras Tinggi untuk pengguna dengan gangguan penglihatan.
+            </li>
+            <li>✔️ Navigasi Keyboard-Friendly tanpa mouse.</li>
+          </ul>
+        </section>
+
+        <section style="margin-bottom: 2rem">
+          <h2 style="color: #1a237e; margin-bottom: 0.5rem">
+            Panduan Penggunaan
+          </h2>
+          <p style="color: #555; font-size: 1.1rem">
+            Gunakan pengaturan di atas untuk menyesuaikan tampilan dan
+            aksesibilitas sesuai kebutuhan Anda. Navigasi situs dapat dilakukan
+            menggunakan keyboard dengan tombol Tab dan Enter.
+          </p>
+        </section>
+      </main>
+    </div>
+  </body>
+</html>
