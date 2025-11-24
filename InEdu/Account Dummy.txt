@@ -1,0 +1,10 @@
+Login Akun Dummy
+
+name: 'Alibaba',
+    email: 'user1@example.com',
+    password: 'password1',
+
+ name: 'Labubu',
+    email: 'user2@example.com',
+    password: 'password2',
+
