@@ -1,0 +1,390 @@
+<!DOCTYPE html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Bahasa Indonesia Dasar (SMP) - InEdu</title>
+    <link rel="stylesheet" href="styles.css" />
+    <script src="script.js" defer></script>
+    <script src="script-latihan-smp-bahasa.js"></script>
+  </head>
+  <body>
+    <header>
+      <div class="navbar">
+        <div class="logo">InEdu</div>
+        <nav>
+          <ul>
+            <li><a href="index.html">Beranda</a></li>
+            <li><a href="materi.html">Materi</a></li>
+            <li><a href="aksesbilitas.html">Aksesbilitas</a></li>
+            <li><a href="forum.html">Forum</a></li>
+            <li><a href="about.html">Tentang Kami</a></li>
+            <li><a href="contact.html">Kontak</a></li>
+            <li><a href="login.html" class="btn-primary">Masuk / Daftar</a></li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+
+    <main style="padding: 2rem; max-width: 800px; margin: auto">
+      <div id="colorBlindWrapper">
+        <h1 style="color: #1a237e; margin-bottom: 1rem">
+          Bahasa Indonesia Dasar (SMP)
+        </h1>
+        <a
+          href="aksesbilitas.html"
+          class="btn-secondary"
+          style="margin-bottom: 1rem; display: inline-block"
+          >🔧 Fitur Aksesibilitas</a
+        >
+        <p style="color: #555; font-size: 1.1rem; margin-bottom: 1rem">
+          Materi ini mencakup tata bahasa dasar, kosakata, dan latihan
+          komunikasi untuk siswa SMP.
+        </p>
+        <div style="margin-bottom: 1.5rem">
+          <button
+            onclick="speakText(document.querySelector('main').innerText, localStorage.getItem('tts_lang') || 'id')"
+            class="btn-primary"
+            style="margin-right: 0.5rem"
+          >
+            🔊 Baca Materi
+          </button>
+          <button onclick="stopSpeak()" class="btn-secondary">
+            ⏹️ Hentikan
+          </button>
+        </div>
+        <section>
+          <h2 style="color: #1a237e">Topik Materi</h2>
+          <ul style="color: #555; font-size: 1.1rem">
+            <li>Tata Bahasa Dasar</li>
+            <li>Kosakata Umum</li>
+            <li>Latihan Menulis dan Membaca</li>
+            <li>Latihan Komunikasi Lisan</li>
+            <li>Video Penjelasan Konsep</li>
+          </ul>
+        </section>
+        <section style="margin-top: 2rem">
+          <a
+            href="materi.html"
+            class="btn-primary"
+            style="
+              text-decoration: none;
+              padding: 0.5rem 1rem;
+              border-radius: 4px;
+            "
+            >Kembali ke Materi</a
+          >
+          <span id="certificateBtnContainer"></span>
+        </section>
+        <section style="margin-top: 2rem">
+          <h2 style="color: #1a237e">Materi PDF & Video</h2>
+          <ul style="color: #555; font-size: 1.1rem">
+            <li>
+              <a
+                href="Materi/SMP_bahasa/BAHASA INDONESIA-BS-KLS VII.pdf"
+                target="_blank"
+                >📄 Download PDF Materi</a
+              >
+            </li>
+          </ul>
+          <div style="margin: 1.5rem 0">
+            <video
+              controls
+              width="100%"
+              style="
+                max-width: 800px;
+                border-radius: 8px;
+                box-shadow: 0 2px 8px #bbb;
+              "
+            >
+              <source
+                src="Materi/SMP_bahasa/Kurikulum Merdeka Rangkuman Bahasa Indonesia Kelas 7 Bab 1 Teks Deskripsi.mp4"
+                type="video/mp4"
+              />
+              Video tidak didukung di browser Anda.
+            </video>
+          </div>
+          <div style="margin-top: 1rem; color: #333; font-size: 1.05rem">
+            <b>Penjelasan Materi:</b>
+            <ul>
+              <li>
+                <b>Tata Bahasa Dasar:</b> Memahami struktur kalimat, penggunaan
+                tanda baca, dan jenis kata dalam bahasa Indonesia.
+              </li>
+              <li>
+                <b>Kosakata Umum:</b> Memperluas kosakata sehari-hari dan
+                penggunaannya dalam kalimat.
+              </li>
+              <li>
+                <b>Latihan Menulis dan Membaca:</b> Melatih kemampuan menulis
+                dan membaca melalui latihan dan contoh teks.
+              </li>
+              <li>
+                <b>Latihan Komunikasi Lisan:</b> Melatih berbicara dan
+                mendengarkan dalam situasi sehari-hari.
+              </li>
+              <li>
+                <b>Video Penjelasan Konsep:</b> Video membantu memahami materi
+                secara visual dan praktis.
+              </li>
+            </ul>
+          </div>
+        </section>
+        <section style="margin-top: 2rem">
+          <h2 style="color: #1a237e">Latihan Soal</h2>
+          <form id="formLatihanSMPBahasa">
+            <ol style="color: #555; font-size: 1.1rem">
+              <li>
+                Kata "rumah" termasuk jenis kata...
+                <ul>
+                  <li>
+                    <label
+                      ><input type="radio" name="soalSMPBahasa1" value="A" /> A.
+                      Kerja</label
+                    >
+                  </li>
+                  <li>
+                    <label
+                      ><input type="radio" name="soalSMPBahasa1" value="B" /> B.
+                      Benda</label
+                    >
+                  </li>
+                  <li>
+                    <label
+                      ><input type="radio" name="soalSMPBahasa1" value="C" /> C.
+                      Sifat</label
+                    >
+                  </li>
+                  <li>
+                    <label
+                      ><input type="radio" name="soalSMPBahasa1" value="D" /> D.
+                      Tanya</label
+                    >
+                  </li>
+                </ul>
+              </li>
+              <li>
+                Kalimat yang benar adalah...
+                <ul>
+                  <li>
+                    <label
+                      ><input type="radio" name="soalSMPBahasa2" value="A" /> A.
+                      Saya makan nasi.</label
+                    >
+                  </li>
+                  <li>
+                    <label
+                      ><input type="radio" name="soalSMPBahasa2" value="B" /> B.
+                      Makan saya nasi.</label
+                    >
+                  </li>
+                  <li>
+                    <label
+                      ><input type="radio" name="soalSMPBahasa2" value="C" /> C.
+                      Nasi saya makan.</label
+                    >
+                  </li>
+                  <li>
+                    <label
+                      ><input type="radio" name="soalSMPBahasa2" value="D" /> D.
+                      Saya nasi makan.</label
+                    >
+                  </li>
+                </ul>
+              </li>
+              <li>
+                Antonim dari "besar" adalah...
+                <ul>
+                  <li>
+                    <label
+                      ><input type="radio" name="soalSMPBahasa3" value="A" /> A.
+                      Panjang</label
+                    >
+                  </li>
+                  <li>
+                    <label
+                      ><input type="radio" name="soalSMPBahasa3" value="B" /> B.
+                      Kecil</label
+                    >
+                  </li>
+                  <li>
+                    <label
+                      ><input type="radio" name="soalSMPBahasa3" value="C" /> C.
+                      Tinggi</label
+                    >
+                  </li>
+                  <li>
+                    <label
+                      ><input type="radio" name="soalSMPBahasa3" value="D" /> D.
+                      Lebar</label
+                    >
+                  </li>
+                </ul>
+              </li>
+              <li>
+                Sinonim dari "pandai" adalah...
+                <ul>
+                  <li>
+                    <label
+                      ><input type="radio" name="soalSMPBahasa4" value="A" /> A.
+                      Bodoh</label
+                    >
+                  </li>
+                  <li>
+                    <label
+                      ><input type="radio" name="soalSMPBahasa4" value="B" /> B.
+                      Pintar</label
+                    >
+                  </li>
+                  <li>
+                    <label
+                      ><input type="radio" name="soalSMPBahasa4" value="C" /> C.
+                      Malas</label
+                    >
+                  </li>
+                  <li>
+                    <label
+                      ><input type="radio" name="soalSMPBahasa4" value="D" /> D.
+                      Rajin</label
+                    >
+                  </li>
+                </ul>
+              </li>
+              <li>
+                Kalimat tanya biasanya diakhiri dengan tanda...
+                <ul>
+                  <li>
+                    <label
+                      ><input type="radio" name="soalSMPBahasa5" value="A" /> A.
+                      Titik</label
+                    >
+                  </li>
+                  <li>
+                    <label
+                      ><input type="radio" name="soalSMPBahasa5" value="B" /> B.
+                      Koma</label
+                    >
+                  </li>
+                  <li>
+                    <label
+                      ><input type="radio" name="soalSMPBahasa5" value="C" /> C.
+                      Seru</label
+                    >
+                  </li>
+                  <li>
+                    <label
+                      ><input type="radio" name="soalSMPBahasa5" value="D" /> D.
+                      Tanya</label
+                    >
+                  </li>
+                </ul>
+              </li>
+              <li>
+                "Ayah pergi ke pasar." Subjek pada kalimat tersebut adalah...
+                <ul>
+                  <li>
+                    <label
+                      ><input type="radio" name="soalSMPBahasa6" value="A" /> A.
+                      Ayah</label
+                    >
+                  </li>
+                  <li>
+                    <label
+                      ><input type="radio" name="soalSMPBahasa6" value="B" /> B.
+                      Pergi</label
+                    >
+                  </li>
+                  <li>
+                    <label
+                      ><input type="radio" name="soalSMPBahasa6" value="C" /> C.
+                      Pasar</label
+                    >
+                  </li>
+                  <li>
+                    <label
+                      ><input type="radio" name="soalSMPBahasa6" value="D" /> D.
+                      Ke</label
+                    >
+                  </li>
+                </ul>
+              </li>
+              <li>
+                Kata "indah" termasuk jenis kata...
+                <ul>
+                  <li>
+                    <label
+                      ><input type="radio" name="soalSMPBahasa7" value="A" /> A.
+                      Kerja</label
+                    >
+                  </li>
+                  <li>
+                    <label
+                      ><input type="radio" name="soalSMPBahasa7" value="B" /> B.
+                      Benda</label
+                    >
+                  </li>
+                  <li>
+                    <label
+                      ><input type="radio" name="soalSMPBahasa7" value="C" /> C.
+                      Sifat</label
+                    >
+                  </li>
+                  <li>
+                    <label
+                      ><input type="radio" name="soalSMPBahasa7" value="D" /> D.
+                      Tanya</label
+                    >
+                  </li>
+                </ul>
+              </li>
+            </ol>
+            <button
+              id="btnKirimLatihanSMPBahasa"
+              type="button"
+              class="btn-primary"
+              style="margin-top: 1rem"
+            >
+              Kirim Jawaban
+            </button>
+          </form>
+          <div
+            id="hasilLatihanSMPBahasa"
+            style="margin-top: 1rem; font-weight: bold; color: #1a237e"
+          ></div>
+        </section>
+      </div>
+    </main>
+
+    <footer
+      style="
+        text-align: center;
+        padding: 1rem;
+        background-color: #e8f0fe;
+        color: #333;
+      "
+    >
+      <p>&copy; 2025 InEdu. All rights reserved.</p>
+    </footer>
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        const user = getLoggedInUser && getLoggedInUser();
+        if (
+          user &&
+          user.completedMaterials &&
+          user.completedMaterials.includes("Bahasa Indonesia Dasar (SMP)")
+        ) {
+          const certBtn = document.createElement("a");
+          certBtn.href =
+            "certificate.html?materi=" +
+            encodeURIComponent("Bahasa Indonesia Dasar (SMP)");
+          certBtn.className = "btn-secondary";
+          certBtn.style.marginLeft = "1rem";
+          certBtn.textContent = "Ambil Sertifikat";
+          document
+            .getElementById("certificateBtnContainer")
+            .appendChild(certBtn);
+        }
+      });
+    </script>
+  </body>
+</html>

@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Matematika Lanjutan (SMA) - InEdu</title>
+  <link rel="stylesheet" href="styles.css" />
+  <script src="script.js" defer></script>
+  <script src="script-latihan-sma.js"></script>
+</head>
+<body>
+  <header>
+    <div class="navbar">
+      <div class="logo">InEdu</div>
+      <nav>
+        <ul>
+          <li><a href="index.html">Beranda</a></li>
+          <li><a href="materi.html">Materi</a></li>
+          <li><a href="aksesbilitas.html">Aksesbilitas</a></li>
+          <li><a href="forum.html">Forum</a></li>
+          <li><a href="about.html">Tentang Kami</a></li>
+          <li><a href="contact.html">Kontak</a></li>
+          <li><a href="login.html" class="btn-primary">Masuk / Daftar</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main style="padding: 2rem; max-width: 800px; margin: auto;">
+    <div id="colorBlindWrapper">
+    <h1 style="color: #1a237e; margin-bottom: 1rem;">Matematika Lanjutan (SMA)</h1>
+    <a href="aksesbilitas.html" class="btn-secondary" style="margin-bottom: 1rem; display: inline-block;">🔧 Fitur Aksesibilitas</a>
+    <p style="color: #555; font-size: 1.1rem; margin-bottom: 1rem;">
+      Materi ini mencakup latihan soal, video penjelasan, dan tips praktis untuk matematika tingkat lanjut SMA.
+    </p>
+    <div style="margin-bottom: 1.5rem;">
+      <button onclick="speakText(document.querySelector('main').innerText, localStorage.getItem('tts_lang') || 'id')" class="btn-primary" style="margin-right:0.5rem;">🔊 Baca Materi</button>
+      <button onclick="stopSpeak()" class="btn-secondary">⏹️ Hentikan</button>
+    </div>
+    <section>
+      <h2 style="color: #1a237e;">Topik Materi</h2>
+      <ul style="color: #555; font-size: 1.1rem;">
+        <li>Aljabar Lanjut</li>
+        <li>Geometri Analitik</li>
+        <li>Statistika dan Peluang</li>
+        <li>Latihan Soal dan Pembahasan</li>
+        <li>Video Penjelasan Konsep</li>
+      </ul>
+    </section>
+    <section style="margin-top: 2rem;">
+      <a href="materi.html" class="btn-primary" style="text-decoration: none; padding: 0.5rem 1rem; border-radius: 4px;">Kembali ke Materi</a>
+      <span id="certificateBtnContainer"></span>
+    </section>
+    <section style="margin-top:2rem;">
+      <h2 style="color:#1a237e">Materi PDF & Video</h2>
+      <ul style="color:#555;font-size:1.1rem">
+        <li><a href="Materi/SMA_matematika/Kelas X Matematika BS press.pdf" target="_blank">📄 Download PDF Materi</a></li>
+      </ul>
+      <div style="margin:1.5rem 0;">
+        <video controls width="100%" style="max-width:800px; border-radius:8px; box-shadow:0 2px 8px #bbb;">
+          <source src="Materi/SMA_matematika/Materi Statistika_ Cara Menguasai Materi Dasar Statistika Matematika SMA.mp4" type="video/mp4">
+          Video tidak didukung di browser Anda.
+        </video>
+      </div>
+      <div style="margin-top:1rem; color:#333; font-size:1.05rem;">
+        <b>Penjelasan Materi:</b>
+        <ul>
+          <li><b>Aljabar Lanjut:</b> Membahas persamaan, pertidaksamaan, dan fungsi aljabar tingkat SMA.</li>
+          <li><b>Geometri Analitik:</b> Memahami garis, lingkaran, dan bidang dalam koordinat kartesius.</li>
+          <li><b>Statistika dan Peluang:</b> Menghitung rata-rata, median, modus, dan peluang kejadian sederhana.</li>
+          <li><b>Latihan Soal dan Pembahasan:</b> Soal latihan untuk menguji pemahaman, bisa didiskusikan bersama guru atau teman.</li>
+          <li><b>Video Penjelasan Konsep:</b> Video membantu memahami konsep matematika secara visual dan mendalam.</li>
+        </ul>
+      </div>
+    </section>
+    <section style="margin-top:2rem;">
+      <h2 style="color:#1a237e">Latihan Soal</h2>
+      <form id="formLatihanSMA">
+        <ol style="color:#555;font-size:1.1rem">
+          <li>Jika x + 2 = 7, maka nilai x adalah...
+            <ul>
+              <li><label><input type="radio" name="soalSMA1" value="A"> A. 4</label></li>
+              <li><label><input type="radio" name="soalSMA1" value="B"> B. 5</label></li>
+              <li><label><input type="radio" name="soalSMA1" value="C"> C. 6</label></li>
+              <li><label><input type="radio" name="soalSMA1" value="D"> D. 7</label></li>
+            </ul>
+          </li>
+          <li>Gradien garis y = 3x + 2 adalah...
+            <ul>
+              <li><label><input type="radio" name="soalSMA2" value="A"> A. 2</label></li>
+              <li><label><input type="radio" name="soalSMA2" value="B"> B. 3</label></li>
+              <li><label><input type="radio" name="soalSMA2" value="C"> C. 1</label></li>
+              <li><label><input type="radio" name="soalSMA2" value="D"> D. 0</label></li>
+            </ul>
+          </li>
+          <li>Hasil dari 2^3 x 2^2 adalah...
+            <ul>
+              <li><label><input type="radio" name="soalSMA3" value="A"> A. 8</label></li>
+              <li><label><input type="radio" name="soalSMA3" value="B"> B. 16</label></li>
+              <li><label><input type="radio" name="soalSMA3" value="C"> C. 32</label></li>
+              <li><label><input type="radio" name="soalSMA3" value="D"> D. 64</label></li>
+            </ul>
+          </li>
+          <li>Jika rata-rata dari 4, 6, 8 adalah...
+            <ul>
+              <li><label><input type="radio" name="soalSMA4" value="A"> A. 5</label></li>
+              <li><label><input type="radio" name="soalSMA4" value="B"> B. 6</label></li>
+              <li><label><input type="radio" name="soalSMA4" value="C"> C. 7</label></li>
+              <li><label><input type="radio" name="soalSMA4" value="D"> D. 8</label></li>
+            </ul>
+          </li>
+          <li>Persamaan lingkaran dengan pusat (0,0) dan jari-jari 5 adalah...
+            <ul>
+              <li><label><input type="radio" name="soalSMA5" value="A"> A. x^2 + y^2 = 10</label></li>
+              <li><label><input type="radio" name="soalSMA5" value="B"> B. x^2 + y^2 = 25</label></li>
+              <li><label><input type="radio" name="soalSMA5" value="C"> C. x^2 + y^2 = 5</label></li>
+              <li><label><input type="radio" name="soalSMA5" value="D"> D. x^2 + y^2 = 20</label></li>
+            </ul>
+          </li>
+          <li>Peluang muncul angka pada pelemparan satu koin adalah...
+            <ul>
+              <li><label><input type="radio" name="soalSMA6" value="A"> A. 1/2</label></li>
+              <li><label><input type="radio" name="soalSMA6" value="B"> B. 1/3</label></li>
+              <li><label><input type="radio" name="soalSMA6" value="C"> C. 1/4</label></li>
+              <li><label><input type="radio" name="soalSMA6" value="D"> D. 1</label></li>
+            </ul>
+          </li>
+          <li>Jika 2x = 10, maka x = ...
+            <ul>
+              <li><label><input type="radio" name="soalSMA7" value="A"> A. 2</label></li>
+              <li><label><input type="radio" name="soalSMA7" value="B"> B. 3</label></li>
+              <li><label><input type="radio" name="soalSMA7" value="C"> C. 4</label></li>
+              <li><label><input type="radio" name="soalSMA7" value="D"> D. 5</label></li>
+            </ul>
+          </li>
+        </ol>
+        <button id="btnKirimLatihanSMA" type="button" class="btn-primary" style="margin-top:1rem;">Kirim Jawaban</button>
+      </form>
+      <div id="hasilLatihanSMA" style="margin-top:1rem; font-weight:bold; color:#1a237e;"></div>
+    </section>
+  </main>
+
+  <footer style="text-align: center; padding: 1rem; background-color: #e8f0fe; color: #333;">
+    <p>&copy; 2025 InEdu. All rights reserved.</p>
+  </footer>
+  <script>
+document.addEventListener('DOMContentLoaded', function() {
+  const user = getLoggedInUser && getLoggedInUser();
+  if (user && user.completedMaterials && user.completedMaterials.includes('Matematika Lanjutan (SMA)')) {
+    const certBtn = document.createElement('a');
+    certBtn.href = 'certificate.html?materi=' + encodeURIComponent('Matematika Lanjutan (SMA)');
+    certBtn.className = 'btn-secondary';
+    certBtn.style.marginLeft = '1rem';
+    certBtn.textContent = 'Ambil Sertifikat';
+    document.getElementById('certificateBtnContainer').appendChild(certBtn);
+  }
+});
+
+document.getElementById('btnKirimLatihanSMA').addEventListener('click', function() {
+  const form = document.getElementById('formLatihanSMA');
+  const jawabanBenar = ['B', 'B', 'B', 'B', 'B', 'A', 'D'];
+  let skor = 0;
+  let totalSoal = jawabanBenar.length;
+
+  for (let i = 0; i < totalSoal; i++) {
+    const radioButtons = form['soalSMA' + (i+1)];
+    let jawabanUser;
+
+    for (const radioButton of radioButtons) {
+      if (radioButton.checked) {
+        jawabanUser = radioButton.value;
+        break;
+      }
+    }
+
+    if (jawabanUser === jawabanBenar[i]) {
+      skor++;
+    }
+  }
+
+  const hasilDiv = document.getElementById('hasilLatihanSMA');
+  hasilDiv.innerHTML = `Anda mendapatkan ${skor} dari ${totalSoal} soal yang benar.`;
+
+  if (skor === totalSoal) {
+    hasilDiv.innerHTML += '<br>Selamat! Anda telah menjawab semua soal dengan benar.';
+    const certBtn = document.createElement('a');
+    certBtn.href = 'certificate.html?materi=' + encodeURIComponent('Matematika Lanjutan (SMA)');
+    certBtn.className = 'btn-secondary';
+    certBtn.style.marginLeft = '1rem';
+    certBtn.textContent = 'Ambil Sertifikat';
+    document.getElementById('certificateBtnContainer').appendChild(certBtn);
+  } else {
+    hasilDiv.innerHTML += '<br>Silakan coba lagi untuk mendapatkan sertifikat.';
+  }
+});
+</script>
+</body>
+</html>

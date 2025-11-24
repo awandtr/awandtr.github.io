@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Matematika Dasar (SD) - InEdu</title>
+    <link rel="stylesheet" href="styles.css" />
+    <script src="script.js" defer></script>
+  </head>
+  <body onload="updateProgressTracking('Matematika Dasar (SD)')">
+    <header>
+      <div class="navbar">
+        <div class="logo">InEdu</div>
+        <nav>
+          <ul>
+            <li><a href="index.html">Beranda</a></li>
+            <li><a href="materi.html">Materi</a></li>
+            <li><a href="aksesbilitas.html">Aksesbilitas</a></li>
+            <li><a href="forum.html">Forum</a></li>
+            <li><a href="about.html">Tentang Kami</a></li>
+            <li><a href="contact.html">Kontak</a></li>
+            <li><a href="login.html" class="btn-primary">Masuk / Daftar</a></li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+
+    <main style="padding: 2rem; max-width: 800px; margin: auto">
+      <div id="colorBlindWrapper">
+      <h1 style="color: #1a237e; margin-bottom: 1rem">Matematika Dasar (SD)</h1>
+      <a href="aksesbilitas.html" class="btn-secondary" style="margin-bottom: 1rem; display: inline-block;">🔧 Fitur Aksesibilitas</a>
+      <p style="color: #555; font-size: 1.1rem; margin-bottom: 1rem">
+        Materi ini mencakup latihan soal, video penjelasan, dan tips praktis
+        untuk matematika tingkat dasar SD. Fokus pada operasi dasar, pengenalan
+        pecahan, dan pengukuran.
+      </p>
+      <div style="margin-bottom: 1.5rem;">
+        <button onclick="speakText(document.querySelector('main').innerText, localStorage.getItem('tts_lang') || 'id')" class="btn-primary" style="margin-right:0.5rem;">🔊 Baca Materi</button>
+        <button onclick="stopSpeak()" class="btn-secondary">⏹️ Hentikan</button>
+      </div>
+      <section>
+        <h2 style="color: #1a237e">Topik Materi</h2>
+        <ul style="color: #555; font-size: 1.1rem">
+          <li>Operasi Penjumlahan dan Pengurangan</li>
+          <li>Pengenalan Pecahan</li>
+          <li>Pengukuran Panjang dan Berat</li>
+          <li>Latihan Soal dan Pembahasan</li>
+          <li>Video Penjelasan Konsep</li>
+        </ul>
+      </section>
+      <section style="margin-top: 2rem">
+        <a
+          href="materi.html"
+          class="btn-primary"
+          style="
+            text-decoration: none;
+            padding: 0.5rem 1rem;
+            border-radius: 4px;
+          "
+          >Kembali ke Materi</a
+        >
+        <span id="certificateBtnContainer"></span>
+      </section>
+      <section style="margin-top:2rem;">
+        <h2 style="color:#1a237e">Materi PDF & Video</h2>
+        <ul style="color:#555;font-size:1.1rem">
+          <li><a href="Materi/SD_matematika/Matematika-Vol-1-BS-KLS-II.pdf" target="_blank">📄 Download PDF Materi</a></li>
+        </ul>
+        <div style="margin:1.5rem 0;">
+          <video controls width="100%" style="max-width:800px; border-radius:8px; box-shadow:0 2px 8px #bbb;">
+            <source src="Materi/SD_matematika/Pecahan Matematika SD.mp4" type="video/mp4">
+            Video tidak didukung di browser Anda.
+          </video>
+        </div>
+        <div style="margin-top:1rem; color:#333; font-size:1.05rem;">
+          <b>Penjelasan Materi:</b>
+          <ul>
+            <li><b>Operasi Penjumlahan dan Pengurangan:</b> Materi ini membahas cara menjumlahkan dan mengurangkan bilangan bulat secara sederhana, termasuk penggunaan garis bilangan dan soal cerita sehari-hari.</li>
+            <li><b>Pengenalan Pecahan:</b> Siswa akan belajar mengenal pecahan sederhana seperti 1/2, 1/4, dan 3/4, serta cara menjumlahkan dan mengurangkan pecahan dengan penyebut yang sama.</li>
+            <li><b>Pengukuran Panjang dan Berat:</b> Materi ini mengenalkan satuan panjang (cm, m) dan berat (gram, kilogram), serta cara mengkonversi satuan dan mengukur benda di sekitar.</li>
+            <li><b>Latihan Soal dan Pembahasan:</b> Disediakan soal-soal latihan untuk menguji pemahaman siswa, lengkap dengan pembahasan di kelas atau melalui video.</li>
+            <li><b>Video Penjelasan Konsep:</b> Video membantu siswa memahami konsep pecahan dan pengukuran secara visual dan interaktif.</li>
+          </ul>
+        </div>
+      </section>
+      <section style="margin-top:2rem;">
+        <h2 style="color:#1a237e">Latihan Soal</h2>
+        <form id="formLatihanSD">
+          <ol style="color:#555;font-size:1.1rem">
+            <li>Hasil dari 7 + 5 adalah...
+              <ul>
+                <li><label><input type="radio" name="soal1" value="A"> A. 10</label></li>
+                <li><label><input type="radio" name="soal1" value="B"> B. 12</label></li>
+                <li><label><input type="radio" name="soal1" value="C"> C. 13</label></li>
+                <li><label><input type="radio" name="soal1" value="D"> D. 14</label></li>
+              </ul>
+            </li>
+            <li>Bilangan yang merupakan pecahan adalah...
+              <ul>
+                <li><label><input type="radio" name="soal2" value="A"> A. 5</label></li>
+                <li><label><input type="radio" name="soal2" value="B"> B. 1/2</label></li>
+                <li><label><input type="radio" name="soal2" value="C"> C. 10</label></li>
+                <li><label><input type="radio" name="soal2" value="D"> D. 7</label></li>
+              </ul>
+            </li>
+            <li>Hasil dari 15 - 8 adalah...
+              <ul>
+                <li><label><input type="radio" name="soal3" value="A"> A. 5</label></li>
+                <li><label><input type="radio" name="soal3" value="B"> B. 6</label></li>
+                <li><label><input type="radio" name="soal3" value="C"> C. 7</label></li>
+                <li><label><input type="radio" name="soal3" value="D"> D. 8</label></li>
+              </ul>
+            </li>
+            <li>1 meter sama dengan ... centimeter.
+              <ul>
+                <li><label><input type="radio" name="soal4" value="A"> A. 10</label></li>
+                <li><label><input type="radio" name="soal4" value="B"> B. 100</label></li>
+                <li><label><input type="radio" name="soal4" value="C"> C. 1000</label></li>
+                <li><label><input type="radio" name="soal4" value="D"> D. 10000</label></li>
+              </ul>
+            </li>
+            <li>Hasil dari 3/4 + 1/4 adalah...
+              <ul>
+                <li><label><input type="radio" name="soal5" value="A"> A. 1/2</label></li>
+                <li><label><input type="radio" name="soal5" value="B"> B. 1</label></li>
+                <li><label><input type="radio" name="soal5" value="C"> C. 2</label></li>
+                <li><label><input type="radio" name="soal5" value="D"> D. 3/4</label></li>
+              </ul>
+            </li>
+            <li>Berat 1 kilogram sama dengan ... gram.
+              <ul>
+                <li><label><input type="radio" name="soal6" value="A"> A. 10</label></li>
+                <li><label><input type="radio" name="soal6" value="B"> B. 100</label></li>
+                <li><label><input type="radio" name="soal6" value="C"> C. 1000</label></li>
+                <li><label><input type="radio" name="soal6" value="D"> D. 10000</label></li>
+              </ul>
+            </li>
+            <li>Hasil dari 9 + 6 adalah...
+              <ul>
+                <li><label><input type="radio" name="soal7" value="A"> A. 13</label></li>
+                <li><label><input type="radio" name="soal7" value="B"> B. 14</label></li>
+                <li><label><input type="radio" name="soal7" value="C"> C. 15</label></li>
+                <li><label><input type="radio" name="soal7" value="D"> D. 16</label></li>
+              </ul>
+            </li>
+          </ol>
+          <button id="btnKirimLatihanSD" type="button" class="btn-primary" style="margin-top:1rem;">Kirim Jawaban</button>
+        </form>
+        <div id="hasilLatihanSD" style="margin-top:1rem; font-weight:bold; color:#1a237e;"></div>
+      </section>
+    </main>
+
+    <footer
+      style="
+        text-align: center;
+        padding: 1rem;
+        background-color: #e8f0fe;
+        color: #333;
+      "
+    >
+      <p>&copy; 2025 InEdu. All rights reserved.</p>
+    </footer>
+    <script>
+document.addEventListener('DOMContentLoaded', function() {
+  const user = getLoggedInUser && getLoggedInUser();
+  if (user && user.completedMaterials && user.completedMaterials.includes('Matematika Dasar (SD)')) {
+    const certBtn = document.createElement('a');
+    certBtn.href = 'certificate.html?materi=' + encodeURIComponent('Matematika Dasar (SD)');
+    certBtn.className = 'btn-secondary';
+    certBtn.style.marginLeft = '1rem';
+    certBtn.textContent = 'Ambil Sertifikat';
+    document.getElementById('certificateBtnContainer').appendChild(certBtn);
+  }
+});
+</script>
+    <script src="script-latihan-sd.js"></script>
+  </body>
+</html>

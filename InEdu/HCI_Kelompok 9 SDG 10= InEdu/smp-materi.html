@@ -1,0 +1,388 @@
+<!DOCTYPE html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Sains Interaktif (SMP) - InEdu</title>
+    <link rel="stylesheet" href="styles.css" />
+    <script src="script.js" defer></script>
+    <script src="script-latihan-smp.js"></script>
+  </head>
+  <body onload="updateProgressTracking('Sains Interaktif (SMP)')">
+    <header>
+      <div class="navbar">
+        <div class="logo">InEdu</div>
+        <nav>
+          <ul>
+            <li><a href="index.html">Beranda</a></li>
+            <li><a href="materi.html">Materi</a></li>
+            <li><a href="aksesbilitas.html">Aksesbilitas</a></li>
+            <li><a href="forum.html">Forum</a></li>
+            <li><a href="about.html">Tentang Kami</a></li>
+            <li><a href="contact.html">Kontak</a></li>
+            <li><a href="login.html" class="btn-primary">Masuk / Daftar</a></li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+
+    <main style="padding: 2rem; max-width: 800px; margin: auto">
+      <div id="colorBlindWrapper">
+        <h1 style="color: #1a237e; margin-bottom: 1rem">
+          Sains Interaktif (SMP)
+        </h1>
+        <a
+          href="aksesbilitas.html"
+          class="btn-secondary"
+          style="margin-bottom: 1rem; display: inline-block"
+          >🔧 Fitur Aksesibilitas</a
+        >
+        <p style="color: #555; font-size: 1.1rem; margin-bottom: 1rem">
+          Materi ini mencakup eksperimen, video interaktif, dan penjelasan
+          konsep sains untuk siswa SMP.
+        </p>
+        <div style="margin-bottom: 1.5rem">
+          <button
+            onclick="speakText(document.querySelector('main').innerText, localStorage.getItem('tts_lang') || 'id')"
+            class="btn-primary"
+            style="margin-right: 0.5rem"
+          >
+            🔊 Baca Materi
+          </button>
+          <button onclick="stopSpeak()" class="btn-secondary">
+            ⏹️ Hentikan
+          </button>
+        </div>
+        <section>
+          <h2 style="color: #1a237e">Topik Materi</h2>
+          <ul style="color: #555; font-size: 1.1rem">
+            <li>Fisika Dasar</li>
+            <li>Kimia Dasar</li>
+            <li>Biologi Dasar</li>
+            <li>Latihan Soal dan Pembahasan</li>
+            <li>Video Penjelasan Konsep</li>
+          </ul>
+        </section>
+        <section style="margin-top: 2rem">
+          <a
+            href="materi.html"
+            class="btn-primary"
+            style="
+              text-decoration: none;
+              padding: 0.5rem 1rem;
+              border-radius: 4px;
+            "
+            >Kembali ke Materi</a
+          >
+          <span id="certificateBtnContainer"></span>
+        </section>
+        <section style="margin-top: 2rem">
+          <h2 style="color: #1a237e">Materi PDF & Video</h2>
+          <ul style="color: #555; font-size: 1.1rem">
+            <li>
+              <a href="Materi/SMP_IPA/IPA-BS-KLS VII.pdf" target="_blank"
+                >📄 Download PDF Materi</a
+              >
+            </li>
+          </ul>
+          <div style="margin: 1.5rem 0">
+            <video
+              controls
+              width="100%"
+              style="
+                max-width: 800px;
+                border-radius: 8px;
+                box-shadow: 0 2px 8px #bbb;
+              "
+            >
+              <source
+                src="Materi/SMP_IPA/Materi Gaya dan Hukum Newton Kelas 8 SMP.mp4"
+                type="video/mp4"
+              />
+              Video tidak didukung di browser Anda.
+            </video>
+          </div>
+          <div style="margin-top: 1rem; color: #333; font-size: 1.05rem">
+            <b>Penjelasan Materi:</b>
+            <ul>
+              <li>
+                <b>Fisika Dasar:</b> Memahami konsep gaya, gerak, dan energi
+                melalui eksperimen sederhana dan contoh sehari-hari.
+              </li>
+              <li>
+                <b>Kimia Dasar:</b> Mengenal zat, perubahan wujud, dan reaksi
+                kimia sederhana yang sering ditemui di rumah atau sekolah.
+              </li>
+              <li>
+                <b>Biologi Dasar:</b> Mengenal bagian tumbuhan, hewan, dan
+                manusia serta fungsinya.
+              </li>
+              <li>
+                <b>Latihan Soal dan Pembahasan:</b> Soal-soal latihan untuk
+                menguji pemahaman, bisa didiskusikan bersama guru atau teman.
+              </li>
+              <li>
+                <b>Video Penjelasan Konsep:</b> Video interaktif untuk
+                memperjelas konsep sains secara visual.
+              </li>
+            </ul>
+          </div>
+        </section>
+        <section style="margin-top: 2rem">
+          <h2 style="color: #1a237e">Latihan Soal</h2>
+          <form id="formLatihanSMP">
+            <ol style="color: #555; font-size: 1.1rem">
+              <li>
+                Alat untuk mengukur panjang adalah...
+                <ul>
+                  <li>
+                    <label
+                      ><input type="radio" name="soalSMP1" value="A" /> A.
+                      Timbangan</label
+                    >
+                  </li>
+                  <li>
+                    <label
+                      ><input type="radio" name="soalSMP1" value="B" /> B.
+                      Penggaris</label
+                    >
+                  </li>
+                  <li>
+                    <label
+                      ><input type="radio" name="soalSMP1" value="C" /> C.
+                      Kompor</label
+                    >
+                  </li>
+                  <li>
+                    <label
+                      ><input type="radio" name="soalSMP1" value="D" /> D.
+                      Ember</label
+                    >
+                  </li>
+                </ul>
+              </li>
+              <li>
+                Benda cair yang sering kita minum adalah...
+                <ul>
+                  <li>
+                    <label
+                      ><input type="radio" name="soalSMP2" value="A" /> A.
+                      Air</label
+                    >
+                  </li>
+                  <li>
+                    <label
+                      ><input type="radio" name="soalSMP2" value="B" /> B.
+                      Batu</label
+                    >
+                  </li>
+                  <li>
+                    <label
+                      ><input type="radio" name="soalSMP2" value="C" /> C.
+                      Kayu</label
+                    >
+                  </li>
+                  <li>
+                    <label
+                      ><input type="radio" name="soalSMP2" value="D" /> D.
+                      Kertas</label
+                    >
+                  </li>
+                </ul>
+              </li>
+              <li>
+                Bagian tumbuhan yang berada di bawah tanah adalah...
+                <ul>
+                  <li>
+                    <label
+                      ><input type="radio" name="soalSMP3" value="A" /> A.
+                      Daun</label
+                    >
+                  </li>
+                  <li>
+                    <label
+                      ><input type="radio" name="soalSMP3" value="B" /> B.
+                      Batang</label
+                    >
+                  </li>
+                  <li>
+                    <label
+                      ><input type="radio" name="soalSMP3" value="C" /> C.
+                      Akar</label
+                    >
+                  </li>
+                  <li>
+                    <label
+                      ><input type="radio" name="soalSMP3" value="D" /> D.
+                      Bunga</label
+                    >
+                  </li>
+                </ul>
+              </li>
+              <li>
+                Gaya yang menyebabkan benda jatuh ke bawah adalah...
+                <ul>
+                  <li>
+                    <label
+                      ><input type="radio" name="soalSMP4" value="A" /> A. Gaya
+                      gesek</label
+                    >
+                  </li>
+                  <li>
+                    <label
+                      ><input type="radio" name="soalSMP4" value="B" /> B. Gaya
+                      gravitasi</label
+                    >
+                  </li>
+                  <li>
+                    <label
+                      ><input type="radio" name="soalSMP4" value="C" /> C. Gaya
+                      dorong</label
+                    >
+                  </li>
+                  <li>
+                    <label
+                      ><input type="radio" name="soalSMP4" value="D" /> D. Gaya
+                      tarik</label
+                    >
+                  </li>
+                </ul>
+              </li>
+              <li>
+                Air berubah menjadi es jika...
+                <ul>
+                  <li>
+                    <label
+                      ><input type="radio" name="soalSMP5" value="A" /> A.
+                      Dipanaskan</label
+                    >
+                  </li>
+                  <li>
+                    <label
+                      ><input type="radio" name="soalSMP5" value="B" /> B.
+                      Didiamkan</label
+                    >
+                  </li>
+                  <li>
+                    <label
+                      ><input type="radio" name="soalSMP5" value="C" /> C.
+                      Dididihkan</label
+                    >
+                  </li>
+                  <li>
+                    <label
+                      ><input type="radio" name="soalSMP5" value="D" /> D.
+                      Didinginkan</label
+                    >
+                  </li>
+                </ul>
+              </li>
+              <li>
+                Bagian tubuh manusia yang digunakan untuk bernapas adalah...
+                <ul>
+                  <li>
+                    <label
+                      ><input type="radio" name="soalSMP6" value="A" /> A.
+                      Telinga</label
+                    >
+                  </li>
+                  <li>
+                    <label
+                      ><input type="radio" name="soalSMP6" value="B" /> B.
+                      Hidung</label
+                    >
+                  </li>
+                  <li>
+                    <label
+                      ><input type="radio" name="soalSMP6" value="C" /> C.
+                      Mata</label
+                    >
+                  </li>
+                  <li>
+                    <label
+                      ><input type="radio" name="soalSMP6" value="D" /> D.
+                      Tangan</label
+                    >
+                  </li>
+                </ul>
+              </li>
+              <li>
+                Hewan yang berkembang biak dengan bertelur adalah...
+                <ul>
+                  <li>
+                    <label
+                      ><input type="radio" name="soalSMP7" value="A" /> A.
+                      Kucing</label
+                    >
+                  </li>
+                  <li>
+                    <label
+                      ><input type="radio" name="soalSMP7" value="B" /> B.
+                      Ayam</label
+                    >
+                  </li>
+                  <li>
+                    <label
+                      ><input type="radio" name="soalSMP7" value="C" /> C.
+                      Sapi</label
+                    >
+                  </li>
+                  <li>
+                    <label
+                      ><input type="radio" name="soalSMP7" value="D" /> D.
+                      Kambing</label
+                    >
+                  </li>
+                </ul>
+              </li>
+            </ol>
+            <button
+              id="btnKirimLatihanSMP"
+              type="button"
+              class="btn-primary"
+              style="margin-top: 1rem"
+            >
+              Kirim Jawaban
+            </button>
+          </form>
+          <div
+            id="hasilLatihanSMP"
+            style="margin-top: 1rem; font-weight: bold; color: #1a237e"
+          ></div>
+        </section>
+      </div>
+    </main>
+
+    <footer
+      style="
+        text-align: center;
+        padding: 1rem;
+        background-color: #e8f0fe;
+        color: #333;
+      "
+    >
+      <p>&copy; 2025 InEdu. All rights reserved.</p>
+    </footer>
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        const user = getLoggedInUser && getLoggedInUser();
+        if (
+          user &&
+          user.completedMaterials &&
+          user.completedMaterials.includes("Sains Interaktif (SMP)")
+        ) {
+          const certBtn = document.createElement("a");
+          certBtn.href =
+            "certificate.html?materi=" +
+            encodeURIComponent("Sains Interaktif (SMP)");
+          certBtn.className = "btn-secondary";
+          certBtn.style.marginLeft = "1rem";
+          certBtn.textContent = "Ambil Sertifikat";
+          document
+            .getElementById("certificateBtnContainer")
+            .appendChild(certBtn);
+        }
+      });
+    </script>
+  </body>
+</html>

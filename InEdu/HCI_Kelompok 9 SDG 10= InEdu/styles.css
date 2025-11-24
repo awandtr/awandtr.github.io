@@ -1,0 +1,513 @@
+/* style.css */
+
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  background-color: #f5f7ff;
+  color: #333;
+}
+
+/* Fix Google Translate widget in navbar to prevent duplication and layout issues */
+#google_translate_element {
+  max-width: 150px;
+  overflow: hidden;
+  white-space: nowrap;
+}
+
+#google_translate_element .goog-te-gadget {
+  width: 100% !important;
+  overflow: hidden !important;
+}
+
+#google_translate_element .goog-te-gadget-simple {
+  border: none !important;
+  background-color: transparent !important;
+  padding: 0 !important;
+  margin: 0 !important;
+}
+
+#google_translate_element select.goog-te-combo {
+  width: 100% !important;
+  padding: 0.2rem 0.4rem !important;
+  border-radius: 4px !important;
+  border: 1px solid #ccc !important;
+  background-color: #fff !important;
+  color: #333 !important;
+  font-size: 0.9rem !important;
+  cursor: pointer !important;
+}
+
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 2rem;
+  background-color: #ffffff;
+}
+
+.navbar .logo {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: #1a237e;
+}
+
+.navbar nav ul {
+  list-style: none;
+  display: flex;
+  gap: 1rem;
+  margin: 0;
+  padding: 0;
+}
+
+.navbar nav ul li a {
+  text-decoration: none;
+  color: #333;
+  font-weight: 500;
+}
+
+.btn-primary {
+  background-color: #1a73e8;
+  color: #ffffff;
+  padding: 0.5rem 1rem;
+  border-radius: 4px;
+  text-decoration: none;
+}
+
+.btn-secondary {
+  background-color: transparent;
+  border: 2px solid #1a73e8;
+  color: #1a73e8;
+  padding: 0.5rem 1rem;
+  border-radius: 4px;
+  text-decoration: none;
+}
+
+.hero {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 4rem 2rem;
+  background-color: #e8f0fe;
+}
+
+.hero-text {
+  max-width: 600px;
+}
+
+.hero-text h1 {
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+  color: #1a237e;
+}
+
+.hero-text p {
+  font-size: 1.1rem;
+  margin-bottom: 1.5rem;
+}
+
+.hero-buttons a {
+  margin-right: 1rem;
+}
+
+.hero-image img {
+  max-width: 300px;
+  border-radius: 8px;
+}
+
+.tags span {
+  display: inline-block;
+  background-color: #dfe3eb;
+  color: #333;
+  padding: 0.2rem 0.5rem;
+  border-radius: 4px;
+  margin-right: 0.5rem;
+  font-size: 0.9rem;
+}
+
+.materi {
+  padding: 2rem;
+}
+
+.materi h2 {
+  color: #1a237e;
+  margin-bottom: 0.5rem;
+}
+
+.materi p {
+  color: #555;
+  margin-bottom: 1rem;
+}
+
+.materi-buttons button {
+  margin: 0.2rem;
+  padding: 0.4rem 0.8rem;
+  border: none;
+  background-color: #e8f0fe;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.materi-cards {
+  display: flex;
+  gap: 1rem;
+  margin: 1rem 0;
+}
+
+.card {
+  background-color: #ffffff;
+  padding: 1rem;
+  border-radius: 8px;
+  flex: 1;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.card h3 {
+  color: #1a237e;
+}
+
+.card p {
+  color: #555;
+}
+
+.card .tags span {
+  background-color: #e8f0fe;
+  color: #1a237e;
+}
+
+.btn-link {
+  display: block;
+  margin-top: 1rem;
+  color: #1a73e8;
+  text-decoration: none;
+}
+
+footer {
+  text-align: center;
+  padding: 1rem;
+  background-color: #e8f0fe;
+  color: #333;
+}
+
+/* Dark theme */
+body.dark {
+  background-color: #121212;
+  color: #ffffff;
+}
+
+body.dark .navbar {
+  background-color: #1f1f1f;
+}
+
+body.dark .navbar nav ul li a {
+  color: #e0e0e0;
+}
+
+body.dark .btn-primary {
+  background-color: #bb86fc;
+  color: #121212;
+}
+
+body.dark .btn-secondary {
+  border-color: #bb86fc;
+  color: #bb86fc;
+}
+
+body.dark .card {
+  background-color: #1f1f1f;
+  box-shadow: none;
+  color: #e0e0e0;
+}
+
+body.dark footer {
+  background-color: #1f1f1f;
+  color: #e0e0e0;
+}
+
+/* Sepia theme */
+body.sepia {
+  background-color: #f4ecd8;
+  color: #5b4636;
+}
+
+body.sepia .navbar {
+  background-color: #e6d8b0;
+}
+
+body.sepia .navbar nav ul li a {
+  color: #5b4636;
+}
+
+body.sepia .btn-primary {
+  background-color: #a67c00;
+  color: #f4ecd8;
+}
+
+body.sepia .btn-secondary {
+  border-color: #a67c00;
+  color: #a67c00;
+}
+
+body.sepia .card {
+  background-color: #e6d8b0;
+  box-shadow: none;
+  color: #5b4636;
+}
+
+body.sepia footer {
+  background-color: #e6d8b0;
+  color: #5b4636;
+}
+
+/* Color Blindness Accessibility Modes - Improved */
+body.protanopia,
+body.deuteranopia,
+body.tritanopia {
+  /* Hanya mengubah warna yang membedakan, bukan grayscale total */
+  filter: none;
+}
+
+body.protanopia nav,
+body.deuteranopia nav,
+body.tritanopia nav,
+body.protanopia footer,
+body.deuteranopia footer,
+body.tritanopia footer,
+body.protanopia main,
+body.deuteranopia main,
+body.tritanopia main {
+  filter: none;
+}
+
+body.protanopia .navbar,
+body.protanopia nav,
+body.protanopia footer,
+body.protanopia main,
+body.deuteranopia .navbar,
+body.deuteranopia nav,
+body.deuteranopia footer,
+body.deuteranopia main,
+body.tritanopia .navbar,
+body.tritanopia nav,
+body.tritanopia footer,
+body.tritanopia main {
+  /* Contoh: ubah warna utama agar tetap kontras dan mudah dibedakan */
+  background-color: #f7f7f7 !important;
+  color: #222 !important;
+}
+
+body.protanopia .btn-primary,
+body.deuteranopia .btn-primary,
+body.tritanopia .btn-primary {
+  background-color: #0072b2 !important; /* biru tua, aman untuk semua buta warna */
+  color: #fff !important;
+}
+
+body.protanopia .btn-secondary,
+body.deuteranopia .btn-secondary,
+body.tritanopia .btn-secondary {
+  border-color: #0072b2 !important;
+  color: #0072b2 !important;
+}
+
+body.protanopia img,
+body.deuteranopia img,
+body.tritanopia img {
+  filter: none;
+}
+
+body.protanopia .fitur-item img,
+body.deuteranopia .fitur-item img,
+body.tritanopia .fitur-item img,
+body.protanopia .hero-image img,
+body.deuteranopia .hero-image img,
+body.tritanopia .hero-image img {
+  filter: none;
+}
+
+body.protanopia .highlight,
+body.deuteranopia .highlight,
+body.tritanopia .highlight {
+  background: #ffe066 !important; /* kuning pastel, aman untuk semua buta warna */
+  color: #222 !important;
+}
+
+/* Color Blindness Accessibility Modes - Spesifik & Berbeda */
+body.protanopia {
+  /* Protanopia: Hindari merah, gunakan biru */
+  --primary-color: #0072b2;
+  --secondary-color: #ffe066;
+  --background-color: #f7f7f7;
+  --text-color: #222;
+}
+body.deuteranopia {
+  /* Deuteranopia: Hindari hijau, gunakan ungu */
+  --primary-color: #88419d;
+  --secondary-color: #ffe066;
+  --background-color: #f7f7f7;
+  --text-color: #222;
+}
+body.tritanopia {
+  /* Tritanopia: Hindari biru, gunakan merah */
+  --primary-color: #d55e00;
+  --secondary-color: #ffe066;
+  --background-color: #f7f7f7;
+  --text-color: #222;
+}
+
+body.protanopia,
+body.deuteranopia,
+body.tritanopia {
+  background: var(--background-color) !important;
+  color: var(--text-color) !important;
+}
+body.protanopia nav,
+body.deuteranopia nav,
+body.tritanopia nav,
+body.protanopia .navbar,
+body.deuteranopia .navbar,
+body.tritanopia .navbar,
+body.protanopia footer,
+body.deuteranopia footer,
+body.tritanopia footer {
+  background: var(--primary-color) !important;
+  color: #fff !important;
+}
+body.protanopia a,
+body.deuteranopia a,
+body.tritanopia a {
+  color: var(--primary-color) !important;
+}
+body.protanopia .btn-primary,
+body.deuteranopia .btn-primary,
+body.tritanopia .btn-primary {
+  background: var(--primary-color) !important;
+  color: #fff !important;
+}
+body.protanopia .btn-secondary,
+body.deuteranopia .btn-secondary,
+body.tritanopia .btn-secondary {
+  border-color: var(--primary-color) !important;
+  color: var(--primary-color) !important;
+}
+body.protanopia .highlight,
+body.deuteranopia .highlight,
+body.tritanopia .highlight {
+  background: var(--secondary-color) !important;
+  color: var(--text-color) !important;
+}
+
+/* SVG filters for color blindness simulation */
+svg {
+  position: absolute;
+  width: 0;
+  height: 0;
+}
+
+body.protanopia nav ul li a,
+body.deuteranopia nav ul li a,
+body.tritanopia nav ul li a,
+body.protanopia .navbar nav ul li a,
+body.deuteranopia .navbar nav ul li a,
+body.tritanopia .navbar nav ul li a {
+  color: #222 !important;
+  font-weight: bold;
+  text-shadow: 0 1px 2px #fff, 0 0 2px #ffe066;
+}
+
+body.protanopia nav ul li a.active {
+  color: #0072b2 !important;
+  background: #ffe066 !important;
+  border-radius: 4px;
+  padding: 0.2em 0.7em;
+}
+body.deuteranopia nav ul li a.active {
+  color: #88419d !important;
+  background: #ffe066 !important;
+  border-radius: 4px;
+  padding: 0.2em 0.7em;
+}
+body.tritanopia nav ul li a.active {
+  color: #d55e00 !important;
+  background: #ffe066 !important;
+  border-radius: 4px;
+  padding: 0.2em 0.7em;
+}
+
+/* Gabungan Mode: Dark/Sepia + Buta Warna */
+.dark.protanopia,
+.dark.deuteranopia,
+.dark.tritanopia {
+  background: #121212 !important;
+  color: #fff !important;
+}
+.dark.protanopia nav,
+.dark.deuteranopia nav,
+.dark.tritanopia nav,
+.dark.protanopia .navbar,
+.dark.deuteranopia .navbar,
+.dark.tritanopia .navbar,
+.dark.protanopia footer,
+.dark.deuteranopia footer,
+.dark.tritanopia footer {
+  background: var(--primary-color, #0072b2) !important;
+  color: #fff !important;
+}
+.dark.protanopia .btn-primary,
+.dark.deuteranopia .btn-primary,
+.dark.tritanopia .btn-primary {
+  background: var(--primary-color, #0072b2) !important;
+  color: #fff !important;
+}
+
+.sepia.protanopia,
+.sepia.deuteranopia,
+.sepia.tritanopia {
+  background: #f4ecd8 !important;
+  color: #5b4636 !important;
+}
+.sepia.protanopia nav,
+.sepia.deuteranopia nav,
+.sepia.tritanopia nav,
+.sepia.protanopia .navbar,
+.sepia.deuteranopia .navbar,
+.sepia.tritanopia .navbar,
+.sepia.protanopia footer,
+.sepia.deuteranopia footer,
+.sepia.tritanopia footer {
+  background: var(--primary-color, #0072b2) !important;
+  color: #fff !important;
+}
+.sepia.protanopia .btn-primary,
+.sepia.deuteranopia .btn-primary,
+.sepia.tritanopia .btn-primary {
+  background: var(--primary-color, #0072b2) !important;
+  color: #fff !important;
+}
+
+/* Materi section tetap putih meskipun mode aktif */
+.materi,
+.materi-cards,
+.card {
+  background: #fff !important;
+  color: #222 !important;
+}
+
+/* Gray theme */
+body.gray {
+  filter: grayscale(1) !important;
+}
+
+body.dark #certificateSection {
+  background-color: #232323 !important;
+  color: #fff !important;
+}
+body.dark #certificateSection p,
+body.dark #certificateSection div,
+body.dark #certificateSection strong {
+  color: #fff !important;
+}
+body.dark #certificateList div {
+  background: #181818 !important;
+  border-color: #333 !important;
+  color: #fff !important;
+}

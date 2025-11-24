@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Profil Pengguna - InEdu</title>
+    <link rel="stylesheet" href="styles.css" />
+    <script src="script.js" defer></script>
+  </head>
+  <body onload="loadUserProfile()">
+    <header>
+      <div class="navbar">
+        <div class="logo">InEdu</div>
+        <nav>
+          <ul>
+            <li><a href="index.html">Beranda</a></li>
+            <li><a href="materi.html">Materi</a></li>
+            <li><a href="aksesbilitas.html">Aksesbilitas</a></li>
+            <li><a href="forum.html">Forum</a></li>
+            <li><a href="about.html">Tentang Kami</a></li>
+            <li><a href="contact.html">Kontak</a></li>
+            <li><a href="login.html" class="btn-primary">Masuk / Daftar</a></li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+
+    <main style="padding: 2rem; max-width: 700px; margin: auto">
+      <h1 style="color: #1a237e; margin-bottom: 1rem">Profil Pengguna</h1>
+      <section
+        class="card"
+        style="
+          background-color: #ffffff;
+          padding: 1rem;
+          border-radius: 8px;
+          box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        "
+      >
+        <h2 style="color: #1a237e" id="profileName">Nama Pengguna</h2>
+        <p style="color: #555" id="profileEmail">Email: user@example.com</p>
+        <h3 style="color: #1a237e; margin-top: 1rem">
+          Materi yang Sudah Dipelajari
+        </h3>
+        <ul
+          style="color: #555; font-size: 1.1rem; margin-bottom: 1.5rem"
+          id="profileMaterials"
+        ></ul>
+        <h3 style="color: #1a237e; margin-top: 1rem">Progress Tracking</h3>
+        <p style="color: #555" id="profileProgress"></p>
+        <h3 style="color: #1a237e; margin-top: 1rem">Sertifikat</h3>
+        <ul
+          style="
+            color: #555;
+            font-size: 1.1rem;
+            margin-bottom: 1.5rem;
+            list-style: disc;
+            padding-left: 1.5rem;
+          "
+          id="profileCertificates"
+        ></ul>
+        <button
+          onclick="logout()"
+          class="btn-primary"
+          style="
+            margin-top: 1rem;
+            padding: 0.5rem 1rem;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+          "
+        >
+          Keluar
+        </button>
+      </section>
+    </main>
+
+    <footer
+      style="
+        text-align: center;
+        padding: 1rem;
+        background-color: #e8f0fe;
+        color: #333;
+      "
+    >
+      <p>&copy; 2025 InEdu. All rights reserved.</p>
+    </footer>
+    <script>
+      function loadUserProfile() {
+        const user = getLoggedInUser();
+        if (!user) {
+          alert("Anda belum login. Silakan masuk terlebih dahulu.");
+          window.location.href = "login.html";
+          return;
+        }
+        document.getElementById("profileName").textContent = user.name;
+        document.getElementById("profileEmail").textContent =
+          "Email: " + user.email;
+        const materialsList = document.getElementById("profileMaterials");
+        materialsList.innerHTML = "";
+        if (user.completedMaterials && user.completedMaterials.length > 0) {
+          user.completedMaterials.forEach((mat) => {
+            const li = document.createElement("li");
+            li.textContent = mat;
+            materialsList.appendChild(li);
+          });
+        } else {
+          materialsList.innerHTML =
+            "<li>Belum ada materi yang dipelajari.</li>";
+        }
+        const progressEl = document.getElementById("profileProgress");
+        progressEl.textContent =
+          "Anda telah menyelesaikan " +
+          (user.progress || "0 dari 0 materi") +
+          ".";
+        // Sertifikat
+        const certList = document.getElementById("profileCertificates");
+        certList.innerHTML = "";
+        if (user.completedMaterials && user.completedMaterials.length > 0) {
+          user.completedMaterials.forEach((mat) => {
+            const li = document.createElement("li");
+            li.style.marginBottom = "1.2rem";
+            li.style.display = "flex";
+            li.style.flexDirection = "column";
+            li.style.alignItems = "flex-start";
+            const matSpan = document.createElement("span");
+            matSpan.textContent = mat;
+            matSpan.style.marginBottom = "0.4rem";
+            const link = document.createElement("a");
+            link.href = "certificate.html?materi=" + encodeURIComponent(mat);
+            link.className = "btn-secondary";
+            link.style.marginLeft = "0";
+            link.style.marginTop = "0";
+            link.textContent = "Lihat Sertifikat";
+            li.appendChild(matSpan);
+            li.appendChild(link);
+            certList.appendChild(li);
+          });
+        } else {
+          certList.innerHTML = "<li>Belum ada sertifikat.</li>";
+        }
+      }
+    </script>
+  </body>
+</html>
