@@ -98,7 +98,7 @@ submitBtn.addEventListener("click", function() {
 });
 
 // Event Listener Reset
-resetBtn.addEventListener("click", () => {
+resetBtn.addEventListener("click", function() {
     yourChoice = "";
     computerChoice = "";
     yourScore = 0;
@@ -113,4 +113,5 @@ resetBtn.addEventListener("click", () => {
     rockBtn.classList.remove("active");
     paperBtn.classList.remove("active");
     scissorsBtn.classList.remove("active"); 
+
 });
