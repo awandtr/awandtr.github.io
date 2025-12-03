@@ -1,0 +1,89 @@
+body {
+    font-family: Arial;
+    background-color: whitesmoke;
+    margin: 0;
+    padding: 0;
+}
+
+.container {
+    width: 400px;
+    margin: 100px auto;
+    background-color: white;
+    padding: 20px;
+    border-radius: 10px;
+    text-align: center;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.header h1 {
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+.scoreboard {
+    display: flex;
+    justify-content: space-between;
+    margin-left: 20px;
+    margin-right: 20px;
+    font-size: 18px;
+    font-weight: semi-bold;
+}
+
+.choices button {
+    padding: 10px 15px;
+    margin: 10px;
+    border: none;
+    border-radius: 8px;
+    background-color: #3498db;
+    color: white;
+    cursor: pointer;
+}
+
+.choices button:hover {
+    background-color: #2980b9;
+}
+
+.choice-button.active {
+    background-color: #ffcc00;  
+    color: black;
+    font-weight: bold;
+}
+
+.submit button {
+    padding: 10px 15px;
+    margin: 10px;
+    border: none;
+    border-radius: 8px;
+    background-color: #23b15e;
+    color: white;
+    cursor: pointer;
+}
+
+.submit button:hover {
+    background-color: #1e8348;
+}
+
+.results p {
+    font-size: 16px;
+    margin: 10px 10px;
+}
+
+.reset button {
+    padding: 10px 15px;
+    margin-top: 10px;
+    border: none;
+    border-radius: 8px;
+    background-color: #e74c3c;
+    color: white;
+    cursor: pointer;
+}
+
+.reset button:hover {
+    background-color: #c0392b;
+}
+
+.footer {
+    margin-top: 40px;
+    margin-bottom: 20px;
+    font-size: 14px;
+}
